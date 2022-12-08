@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>subcategory</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-grid>
+
+          <ion-row *ngFor="let t of category_sub_list" (click)="sendtoproduct('sub_categories',t.id)">
+
+            <ion-col >
+<p> <figure class="figure" style="padding:30px;">
+  <img src="{{t.catcover}}" class="img-thumbnail"  width="50" height="50">
+
+</figure>{{t.catname}}</p><br>
+<ul>
+<li >{{t.name}}</li></ul>
+</ion-col>
+
+    </ion-row>
+
+</ion-grid>
+</ion-content>

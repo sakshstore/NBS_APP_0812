@@ -1,0 +1,78 @@
+<ion-header>
+	<ion-toolbar color="primary">
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+			<ion-title>Select Address </ion-title>
+		</ion-buttons>
+
+
+		<ion-buttons slot="end">
+			<ion-button (click)="backbtn()">Close</ion-button>
+		</ion-buttons>
+
+
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+
+
+
+	<div *ngIf="show">
+
+		<ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="addaddress()">
+			<ion-fab-button>
+				<ion-icon name="add"></ion-icon>
+			</ion-fab-button>
+		</ion-fab>
+
+
+
+
+
+
+
+		<ion-card *ngFor="let add of address_list index as i;">
+
+
+			<ion-card-content>
+
+				<ion-list>
+					Name : {{add.name}} <br />
+					Mobile Number : {{add.mobile_number}}<br />
+					Address Line 1 : {{add.address}}<br />
+					City : {{add.city}}<br />
+					Pincode : {{add.pincode}}
+
+				</ion-list>
+				<ion-button type="submit" (click)="select(add.address_id)" expand="block" size="default">
+				Select this address 
+				</ion-button>
+			</ion-card-content>
+		</ion-card>
+
+		<ion-card>
+
+
+			<ion-card-content>
+
+				<ion-button type="submit" (click)="addaddress()" expand="block" size="default">
+					<ion-icon name="add"></ion-icon> Add Address
+				</ion-button>
+
+			</ion-card-content>
+		</ion-card>
+
+
+
+
+
+
+
+	</div>
+
+
+</ion-content>

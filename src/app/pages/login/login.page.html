@@ -1,0 +1,66 @@
+<!-- 	
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Service App</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col size="12">
+
+
+
+        <form [formGroup]="credentials">
+          <div class="input-group">
+
+            <span *ngIf="!show">
+              <ion-item>
+                <ion-input type="email" placeholder="Email id" formControlName="mobile"></ion-input>
+              </ion-item>
+              <!--    <div *ngIf="(mobile.dirty || mobile.touched) && mobile.errors" class="errors">
+        <span *ngIf="mobile.errors?.required">Mobile Number is required</span>
+        <span *ngIf="mobile.errors?.mobile">Mobile Number is invalid</span>
+      </div> -->
+            </span>
+
+            <span *ngIf="show">
+              <ion-item>
+                <ion-input type="number" placeholder="OTP" formControlName="otp"></ion-input>
+              </ion-item>
+              <!--    <div *ngIf="(otp.dirty || otp.touched) && otp.errors" class="errors">
+        <span *ngIf="otp.errors?.required">OTP is required</span>
+        <span *ngIf="otp.errors?.minlength">OTP needs to be 4 digit</span>
+      </div> -->
+
+            </span>
+          </div>
+          <span *ngIf="!show">
+            <ion-button type="button" expand="block" (click)="login()">Log in</ion-button>
+          </span>
+
+          <span *ngIf="show">
+            <ion-button type="submit" (click)="verify()" expand="block">Verify</ion-button>
+          </span>
+
+          <!--  <ion-button (click)="register()" type="button" expand="block" color="light" fill="clear">Not yet a member? Sign up!
+    </ion-button> -->
+
+          <!-- <ion-button type="button" expand="block" color="tertiary">
+      <ion-icon name="logo-google" slot="start"></ion-icon>
+      Sign in with Google
+    </ion-button>
+    <ion-button type="button" expand="block" color="tertiary">
+      <ion-icon name="logo-apple" slot="start"></ion-icon>
+      Sign in with Apple
+    </ion-button> -->
+
+
+        </form>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

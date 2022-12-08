@@ -1,0 +1,271 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="order"></ion-back-button>
+    </ion-buttons>
+
+
+    <ion-buttons slot="end">
+      <ion-button (click)="backbtn()">Close</ion-button>
+    </ion-buttons>
+
+    <ion-title> Order Detail </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+  <ion-accordion-group *ngIf="show">
+
+    <ion-accordion value="order_information" >
+      <ion-item slot="header" color="light">
+        <ion-label>Order Details</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <div>
+                Order No
+              </div>
+            </ion-col>
+            <ion-col>
+              <div>
+                {{order_id}}
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div>
+                Order Date
+              </div>
+            </ion-col>
+            <ion-col>
+              <div>
+                {{date}}
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div>
+                Total products in this order
+              </div>
+            </ion-col>
+            <ion-col>
+              <div>
+                {{products_count}}
+              </div>
+            </ion-col>
+          </ion-row>
+
+
+          <ion-row>
+            <ion-col>
+              <div>
+                Order Status
+              </div>
+            </ion-col>
+            <ion-col>
+              <div>
+                {{status}}
+              </div>
+            </ion-col>
+          </ion-row>
+
+
+          <ion-row>
+            <ion-col>
+              <div>
+                Total Amount
+              </div>
+            </ion-col>
+            <ion-col>
+              <div>
+                {{total}}
+              </div>
+            </ion-col>
+          </ion-row>
+
+
+
+        </ion-grid>
+      </div>
+    </ion-accordion>
+
+
+    <ion-accordion value="delivery_address">
+      <ion-item slot="header" color="light">
+        <ion-label>Delivery address</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+
+        
+        Name : {{customer_address.name}}<br />
+        Mobile Number : {{customer_address.mobile_number}}<br />
+        Address Line 1 : {{customer_address.address}}<br />
+        City : {{customer_address.city}}<br />
+        Pincode : {{customer_address.pincode}}
+
+
+      </div>
+    </ion-accordion>
+
+
+
+    <ion-accordion value="product_details">
+      <ion-item slot="header" color="light">
+        <ion-label>Product Details</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+
+
+
+        <ion-item *ngFor="let t of items">
+
+          <ion-thumbnail slot="start">
+            <img src="{{t.cover}}">
+          </ion-thumbnail>
+          <p> <b> {{t.name}}</b> <br> <br>
+            ₹{{t.selling_price | number}}
+
+            <br /> Quantity {{t.quantity}}<br>
+
+          </p>
+
+
+        </ion-item>
+
+
+
+
+
+
+      </div>
+    </ion-accordion>
+
+
+
+
+
+    <ion-accordion value="shipment_details">
+      <ion-item slot="header" color="light">
+        <ion-label>Shipment Details</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-grid>
+
+
+          <ion-row>
+            <ion-col>
+              <div>
+                Status
+              </div>
+            </ion-col>
+            <ion-col>
+              <div>
+                {{status}}
+              </div>
+            </ion-col>
+          </ion-row>
+
+
+          <ion-row>
+            <ion-col>
+              <div>
+                Details
+              </div>
+            </ion-col>
+            <ion-col>
+              <div>
+                {{shipping_details}}
+              </div>
+            </ion-col>
+          </ion-row>
+
+
+
+
+
+        </ion-grid>
+      </div>
+    </ion-accordion>
+
+<!--
+
+    <ion-accordion value="payment_information">
+      <ion-item slot="header" color="light">
+        <ion-label>Payments Information</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-grid>
+
+          <ion-row>
+            <ion-col>
+              <div>
+                Payment
+              </div>
+            </ion-col>
+            <ion-col>
+              <div>
+                {{payment_method}}
+              </div>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <div>
+                Status
+              </div>
+            </ion-col>
+            <ion-col>
+              <div>
+                {{payment_status}}
+              </div>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <ion-button type="submit" (click)="makepayment()" expand="block" size="default">
+                Make payment
+              </ion-button>
+
+            </ion-col>
+          </ion-row>
+
+
+
+        </ion-grid>
+
+      </div>
+    </ion-accordion>
+  -->
+
+  </ion-accordion-group>
+
+
+  <ion-refresher slot="fixed" disabled="false" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+      refreshingText="Refreshing..."></ion-refresher-content>
+  </ion-refresher>
+
+
+
+
+</ion-content>
+
+
+<ion-footer *ngIf="status=='pending'">
+  <ion-row class="ion-text-center">
+    <ion-col class="ion-no-padding">
+      <ion-button (click)="makepayment()" expand="full" share="round" color="primary">Order received our executive will call you  </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

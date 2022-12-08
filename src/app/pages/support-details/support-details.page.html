@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    
+      <ion-buttons slot="start">
+      <ion-back-button ></ion-back-button>
+    <ion-title>Support Details</ion-title> </ion-buttons>
+   
+   
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <!-- <ion-button type="submit" (click)="addaddress()" expand="block" size="default" > Add Address</ion-button> -->
+
+
+  
+
+<ion-list>
+<ion-item>
+	<ion-col>
+      <div class="ion-text-justify">
+     #{{id}}  {{title}}
+      </div>
+    </ion-col>
+
+
+</ion-item>
+<ion-item>
+<ion-col>
+      <div class="ion-text-justify">
+        <h3>Problem Details:</h3><br>
+    {{problem_details}}
+      </div>
+    </ion-col>
+
+</ion-item>
+
+<ion-item>
+    <ion-col>
+      <div class="ion-text-justify">
+     Address : {{pincode}} {{address}} {{city}}<br>
+
+
+      </div>
+   
+    </ion-col>
+
+</ion-item>
+
+<ion-item>
+		<ion-col>
+      <div class="ion-text-justify">
+     Machine :  {{machine_title}} <br>
+
+
+    Brand:    {{brand}} <br>
+    Year of Purchase :  {{year_of_purchase}} <br>
+    Model : {{model}}
+      </div>
+   
+    </ion-col>
+
+</ion-item>
+
+
+
+
+<br>
+
+
+</ion-list>
+</ion-content>
+<ion-footer collapse="fade">
+  <ion-toolbar><br>
+ 
+    
+ <ion-button type="submit" (click)="select()" expand="block" size="default" >Confirm  </ion-button>
+  </ion-toolbar></ion-footer>

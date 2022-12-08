@@ -1,0 +1,78 @@
+<ion-header> <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/tab1"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title> Product Details </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="show">
+  <ion-card class="welcome-card">
+
+    <ion-slides pager="true">
+      <ion-slide>
+        <img src="{{product.cover}}" />
+      </ion-slide>
+    </ion-slides>
+  </ion-card>
+
+  <ion-card class="welcome-card">
+
+    <ion-card-header>
+      <ion-card-subtitle>{{product.name}}</ion-card-subtitle>
+
+    </ion-card-header>
+    <ion-row class="ion-text-center">
+      <h3> &nbsp; &nbsp;₹{{product.original_price | number}}</h3>
+
+    </ion-row>
+  </ion-card>
+
+
+  <ion-card class="welcome-card">
+
+
+
+    <ion-row class="ion-text-center">
+
+
+      <form (ngSubmit)="set_cart_quantity()" [formGroup]="set_quantity">
+
+
+        <ion-item>
+          <ion-label position="fixed">Quantity</ion-label>
+          <ion-input type="amount" formControlName="quantity"></ion-input>
+        </ion-item>
+
+
+
+
+
+
+
+
+
+      </form>
+
+
+    </ion-row>
+  </ion-card>
+
+  <ion-card class="welcome-card">
+    <ion-card-header>
+      <ion-card-subtitle>Description</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>{{product.descriptions}}</ion-card-content>
+  </ion-card>
+
+</ion-content>
+<ion-footer>
+  <ion-row *ngIf="show" class="ion-text-center">
+    <ion-col size="12" class="ion-no-padding">
+      <ion-button expand="full" color="primary" (click)="addToCart()">Add to Cart</ion-button>
+    </ion-col>
+
+  </ion-row>
+</ion-footer>

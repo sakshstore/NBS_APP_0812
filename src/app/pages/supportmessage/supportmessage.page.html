@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Support Message</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Close</ion-button></ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <form>
+
+
+
+    <ion-card class="card">
+     
+      <ion-card-content>
+        <ion-grid>
+     
+
+
+          <ion-row>
+            <ion-col>
+  <!-- <ion-label position="stacked">Support Message</ion-label> -->
+              <ion-item>
+
+                <ion-textarea rows="6" cols="20" class="form-control" type="text" 
+                  placeholder="Enter Support Message..." name="details"></ion-textarea>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+
+          <br>
+
+          <div class="form-group">
+            <ion-button type="submit" (click)="submit()" expand="block" size="default">Add Message</ion-button>
+          </div>
+
+
+
+        </ion-grid>
+
+
+      </ion-card-content>
+    </ion-card>
+  </form>
+
+
+</ion-content>

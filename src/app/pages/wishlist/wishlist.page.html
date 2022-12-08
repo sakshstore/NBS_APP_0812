@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+
+  		<ion-buttons slot="start">
+      <ion-back-button ></ion-back-button>
+   
+     <ion-title>
+  Wishlist
+    </ion-title> </ion-buttons>
+   
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"> Product Wishlist</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-grid>
+
+          <ion-row>
+
+            <ion-col>
+
+<ion-card (click)="submit()">
+          <img src="/assets/a1.png" width="350" height="100">
+          <ion-card-header>
+            <ion-card-subtitle>Electronics </ion-card-subtitle>
+            <ion-card-title>Adata XPG Spectrix D60G 8GB (8GBX1) DDR4 3200MHz RGB</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <h3>₹3,099</h3>
+      <ion-button type="submit" (click)="submit()" expand="block" size="default">Add to cart</ion-button>
+          </ion-card-content>
+        </ion-card>
+</ion-col>
+            <ion-col>
+
+
+<ion-card (click)="submit()">
+          <img src="/assets/a2.png" width="350" height="100">
+          <ion-card-header>
+            <ion-card-subtitle>Electronics </ion-card-subtitle>
+            <ion-card-title>Adata 16GB (16GBx1) DDR5 4800MHz   </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+ <h3>₹10,999</h3>
+      <ion-button type="submit" (click)="submit()" expand="block" size="default">Add to cart</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+
+    </ion-row></ion-grid>
+  <!-- <app-explore-container name="{{randNumber}}"></app-explore-container> -->
+</ion-content>

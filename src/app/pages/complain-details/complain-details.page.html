@@ -1,0 +1,149 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      <ion-title>Complain Details</ion-title>
+    </ion-buttons>
+
+
+    <ion-buttons slot="end">
+      <ion-button (click)="backbtn()">Close</ion-button>
+    </ion-buttons>
+    
+
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <ion-accordion-group [value]="['problem_details','product_lists']">
+
+
+    <ion-accordion value="problem_details" class="accordion-expanded">
+      <ion-item slot="header" color="light">
+        <ion-label> #{{id}} {{title}} </ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-item>
+          <ion-label>
+            {{problem_details}}
+
+            <br /> <br />
+            Job work ID {{id}}
+          </ion-label>
+        </ion-item>
+      </div>
+    </ion-accordion>
+
+    <ion-accordion value="product_lists">
+      <ion-item slot="header" color="light">
+        <ion-label>Estimate's Product list</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-item *ngFor="let t of product_list  ">
+          <ion-label># {{t.id}} {{t.title}}<br><br>
+            {{t.product_name }}<br> {{t.amount }}<br>
+
+          </ion-label>
+        </ion-item>
+      </div>
+    </ion-accordion>
+
+
+    <ion-accordion value="machine">
+      <ion-item slot="header" color="light">
+        <ion-label>Machine </ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-item>
+          <ion-label>
+            {{machine_title}} <br>
+
+
+            Brand: {{brand}} <br>
+
+            Model : {{model}}
+
+          </ion-label>
+        </ion-item>
+      </div>
+    </ion-accordion>
+
+
+
+
+
+    <ion-accordion value="address">
+      <ion-item slot="header" color="light">
+        <ion-label>Address </ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-item>
+          <ion-label>
+            {{address}} {{city}}
+            <br /> {{pincode}}
+
+          </ion-label>
+        </ion-item>
+      </div>
+    </ion-accordion>
+
+
+
+
+
+  </ion-accordion-group>
+
+
+  <!--
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="openModal()">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+-->
+
+
+  <ion-refresher slot="fixed" disabled="false" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+      refreshingText="Refreshing..."></ion-refresher-content>
+  </ion-refresher>
+
+
+
+</ion-content>
+<ion-footer collapse="fade">
+  <ion-toolbar  *ngIf="accept_btn_visible">
+
+    <ion-row>
+      <ion-col col-6>
+        <ion-button *ngIf="accept_btn_visible" (click)="accept_estimate(id)" expand="full" share="round"
+          color="success">Make Payment
+        </ion-button>
+      </ion-col>
+      <ion-col col-6>
+        <ion-button *ngIf="cancel_btn_visible" (click)="reject_complain(id)" expand="full" share="round" color="danger">
+          Cancel
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+
+  </ion-toolbar>
+</ion-footer>

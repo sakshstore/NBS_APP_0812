@@ -1,0 +1,146 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      <ion-title>Cart</ion-title>
+    </ion-buttons>
+
+    <!-- <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Close</ion-button></ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+  <ion-grid>
+
+    <ion-row>
+
+      <ion-col>Product</ion-col>
+      <ion-col>Price</ion-col>
+      <ion-col>Quantity</ion-col>
+      <ion-col>Total</ion-col>
+    </ion-row>
+
+    <br>
+    <ion-row>
+      <ion-col>{{name}}</ion-col>
+      <ion-col> ₹{{original_price}}</ion-col>
+      <ion-col> <input type="number" value="1">
+        <!--  <ion-icon name="remove" (click)="removeQ(i)"></ion-icon>1  <ion-icon name="add" (click)="addQ(i)"></ion-icon> -->
+      </ion-col>
+      <ion-col> ₹{{original_price}}</ion-col>
+    </ion-row>
+
+    <br>
+    <ion-button class="btn" (click)="d()" share="round" color="success">Update Cart</ion-button><br><br>
+    <!-- <div style="width:100%; padding:0px; float:left;"> -->
+
+    <!--          <div style="width:100%;float:left;background:#efefef;">
+            <span style="float:left; text-align:left;padding:10px;width:40%;color:#888;font-weight:600;">
+            Product
+           </span>
+         <span style="font-weight:600;float:left;padding:10px ;width:20%;color:#888;text-align:right;">
+         Price
+        </span>
+          <span style="font-weight:600;float:left;padding:10px ;width:20%;color:#888;text-align:right;">
+         Quantity
+        </span>
+         <span style="font-weight:600;float:left;padding:10px ;width:20%;color:#888;text-align:right;">
+         Total
+        </span>
+      </div> -->
+
+
+
+
+    <!--   <div style="width:100%;float:left;"  >
+            <span style="float:left; text-align:left;padding:10px;width:40%;color:#888;">
+               Adata 16GB (16GBx1) DDR5 4800MHz
+        </span>
+
+         <span style="font-weight:normal;float:left;padding:10px ;width:20%;color:#888;text-align:right;">
+         ₹10,999
+        </span>
+
+
+            <span style="font-weight:normal;float:left;padding:10px ;width:20%;color:#888;text-align:right;">
+           <div class="cart_flex">
+              <ion-icon name="remove" (click)="removeQ(i)"></ion-icon>
+              <ion-label>1</ion-label>
+              <ion-icon name="add" (click)="addQ(i)"></ion-icon>
+            </div>
+        </span>
+
+      </div> -->
+    <!-- 
+
+	   <div style="width:100%;float:left;">
+            <span style="float:left; text-align:left;padding:10px;width:20%;color:#888;">
+            Promotional Code            
+            <span style="font-size:10px; float:left; width:100%;">
+                (0%)
+            </span>
+        </span>
+         <span style="font-weight:normal;float:left;padding:10px ;width:80%;color:#888;text-align:right;">
+          ₹10,999
+        </span>
+      </div> -->
+    <!--  
+
+	  	   <div style="width:100%;float:left; background:#fff;">
+           
+         <span style="font-weight:600;float:right;padding:10px 0px;width:40%;color:#666;text-align:center;">
+           Total : ₹10,999
+        </span>
+      </div> -->
+
+    <!-- </div> -->
+
+
+  </ion-grid>
+  <br><br>
+  <ion-item>
+    <ion-input placeholder="Coupon Code"></ion-input>
+    <ion-button (click)="ss()" expand="full" share="round" color="success">Apply coupan</ion-button>
+
+  </ion-item>
+
+
+
+  <br>
+  <ion-card class="card">
+    <ion-card-header color="light">
+      <h1>Cart totals</h1>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-col>
+          Subtotal
+        </ion-col>
+        <ion-col>
+          {{original_price}}</ion-col>
+      </ion-item>
+      <ion-item>
+
+        <ion-col>
+          Total
+        </ion-col>
+        <ion-col>
+          {{original_price}}</ion-col>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>
+<ion-footer>
+  <ion-row class="ion-text-center">
+    <ion-col class="ion-no-padding">
+      <ion-button (click)="checkout()" expand="full" share="round" color="success">Proceed to checkout</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

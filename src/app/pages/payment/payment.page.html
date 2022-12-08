@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/tab1"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title> Payment </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="backbtn()">Close</ion-button>
+    </ion-buttons>
+
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  
+  <img src="{{qrcode}}">
+  <br /><br />
+  Payable amount   ₹{{total | number}}
+
+  {{qrcode}}
+  <br /><br /> 
+  
+  <ion-button *ngIf="showOrder" type="submit" (click)="submitOrder()" expand="block" size="default">Submit Order</ion-button>
+
+
+  <ion-button *ngIf="showJobWork" type="submit" (click)="submitJobWork()" expand="block" size="default">Submit Job Work</ion-button>
+
+  
+
+
+</ion-content>

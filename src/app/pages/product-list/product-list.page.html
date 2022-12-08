@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+
+      <ion-title>Product List</ion-title>
+    </ion-buttons>
+
+
+    <ion-buttons slot="end">
+      <ion-button (click)="gotocart()">Cart</ion-button>
+    </ion-buttons>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"> Product List</ion-title>
+
+      <ion-buttons slot="end">
+        <ion-button (click)="gotocart()">Cart</ion-button>
+      </ion-buttons>
+  
+
+      
+      
+    </ion-toolbar>
+  </ion-header>
+
+
+
+
+  <ion-item *ngFor="let t of products_list" (click)="gotodetails(t.id)">
+
+    <ion-thumbnail slot="start">
+      <img src="{{t.cover}}">
+    </ion-thumbnail>
+    <p> <b>{{t.name}}</b> <br> <br>
+      ₹{{t.original_price | number}}</p>
+  </ion-item>
+
+
+
+</ion-content>

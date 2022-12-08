@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add Machine</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="addForm" (ngSubmit)="submit()">
+
+    <ion-card class="card">
+
+
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-label text-size-xs position="stacked">Title</ion-label>
+              <ion-item>
+                <ion-input type="text" formControlName="title"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row><br>
+
+          <ion-row>
+            <ion-col>
+              <ion-label text-size-xs position="stacked">Brand</ion-label>
+              <ion-item>
+                <ion-input type="text" formControlName="brand"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row><br>
+
+
+
+          <ion-row>
+            <ion-col>
+              <ion-label text-size-xs position="stacked">Model</ion-label>
+              <ion-item>
+                <ion-input type="text" formControlName="model"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row><br>
+
+          <ion-row style="display: none;">
+            <ion-col>
+              <ion-label position="stacked">Upload Image</ion-label>
+              <ion-item>
+                <ion-input type="file" formControlName="machine_image"> </ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+
+     
+
+
+
+          <div class="form-group">
+            <ion-button type="submit" expand="block" size="default">Submit</ion-button>
+          </div>
+        </ion-grid>
+
+
+      </ion-card-content>
+    </ion-card>
+  </form>
+
+</ion-content>

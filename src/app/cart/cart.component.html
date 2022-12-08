@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar  color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      <ion-title>Cart</ion-title>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="backbtn()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-item  *ngFor="let t of items  " (click)="gotodetails(t.id)">
+
+    <ion-thumbnail slot="start">
+      <img src="{{t.cover}}">
+    </ion-thumbnail>
+    <p> <b>{{t.name}}</b> <br> <br>
+      Price ₹{{t.original_price | number}} <br>
+      Quantity {{t.quantity}}
+      <br>
+      Net price ₹{{t.net_price | number}} <br>
+      
+    </p>
+  </ion-item>
+
+
+  <ion-item  > 
+  <ion-button (click)="clearcart()" expand="full" share="round" color="primary">Clear Cart</ion-button>
+</ion-item>
+</ion-content>
+
+
+
+<ion-footer>
+  <ion-row class="ion-text-center">
+    <ion-col class="ion-no-padding">
+      <ion-button (click)="checkout()" expand="full" share="round" color="primary">Proceed to checkout</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

@@ -1,0 +1,110 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+
+      <ion-title>Ticket History</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h3> Open Ticket </h3>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-list>
+    <ion-item *ngFor="let t of job_work_report index as i;" (click)="sendto(t.id)">
+      <ion-label *ngIf="t.status   ==   'open'"># {{t.id}} {{t.title}}<br>
+        {{t.name }} {{t.mobile_number }}<br>
+        {{t.status}}<br>
+        {{t.created_at}}
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+  <br>
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h3> Deposit Ticket </h3>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-list>
+    <ion-item *ngFor="let t of job_work_report index as i;" (click)="sendto(t.id)">
+      <ion-label *ngIf="t.status   ==   'Deposit'"># {{t.id}} {{t.title}}<br>
+        {{t.name }} {{t.mobile_number }}<br>
+        {{t.status}}<br>
+        {{t.created_at}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+
+  <br>
+
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h3> Delivered Ticket </h3>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-list>
+    <ion-item *ngFor="let t of job_work_report index as i;" (click)="sendto(t.id)">
+      <ion-label *ngIf="t.status   ==   'Delivered'"># {{t.id}} {{t.title}}<br>
+        {{t.name }} {{t.mobile_number }}<br>
+        {{t.status}}<br>
+        {{t.created_at}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <br>
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h3> Hold Ticket </h3>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-list>
+    <ion-item *ngFor="let t of job_work_report index as i;" (click)="sendto(t.id)">
+      <ion-label *ngIf="t.status   ==   'Hold'"># {{t.id}} {{t.title}}<br>
+        {{t.name }} {{t.mobile_number }}<br>
+        {{t.status}}<br>
+        {{t.created_at}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h3> Close Ticket </h3>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-list>
+    <ion-item *ngFor="let t of job_work_report index as i;" (click)="sendto(t.id)">
+      <ion-label *ngIf="t.status   ==   'Closed'"># {{t.id}} {{t.title}}<br>
+        {{t.name }} {{t.mobile_number }}<br>
+        {{t.status}}<br>
+        {{t.created_at}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <br>
+
+</ion-content>

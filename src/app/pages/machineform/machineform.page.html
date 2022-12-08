@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Job work
+    </ion-title>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+  <form [formGroup]="addForm" (ngSubmit)="submit()">
+
+
+
+    <ion-card class="card">
+      <ion-card-header color="light">
+        <h1> Add Problem</h1>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-label text-size-xs position="stacked">Title</ion-label>
+              <ion-item>
+                <ion-input type="text" formControlName="title"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row><br>
+
+
+          <ion-row>
+            <ion-col>
+              <ion-label position="stacked">Machine Problem</ion-label>
+              <ion-item>
+
+                <ion-textarea rows="6" cols="20" class="form-control" type="text" placeholder="Enter Problem..."
+                  name="problem_details" formControlName="problem_details"></ion-textarea>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+
+          <br>
+
+          <div class="form-group">
+            <ion-button type="submit" expand="block" size="default">Submit</ion-button>
+          </div>
+        </ion-grid>
+
+
+      </ion-card-content>
+    </ion-card>
+  </form>
+
+
+
+
+
+</ion-content>

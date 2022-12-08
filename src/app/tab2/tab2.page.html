@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Job Works
+    </ion-title>
+
+    <ion-buttons slot="end" (click)="logout()">
+      <ion-title class="logout">
+        <ion-icon class="icons1" name="log-out-outline"></ion-icon>
+      </ion-title>
+
+
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <ion-accordion-group>
+
+
+
+
+
+
+
+
+    <ion-accordion value="third">
+      <ion-item slot="header" color="light">
+        <ion-label>Add new Complain</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+
+
+
+        <ion-card *ngFor="let t of machine_list index as i;" (click)="submit(t.id)">
+
+
+
+
+          <ion-card-content>
+
+            <p>{{t.title}} <br />
+              {{t.brand}}
+
+              {{t.model}}
+
+              {{t.title}}</p>
+
+
+          </ion-card-content>
+        </ion-card>
+
+
+
+
+
+        <ion-card (click)="add()">
+          <ion-card-content>
+
+
+            <p> Add a new machine </p>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-accordion>
+
+    <ion-accordion value="open">
+      <ion-item slot="header" color="light">
+        <ion-label>Job Works</ion-label>
+      </ion-item>
+
+
+      <div class="ion-padding" slot="content">
+
+
+        <ion-item *ngFor="let t of job_work_report index as i;" (click)="send_to_complain(t.id)">
+          <p>{{t.title}}<br>
+            <br>
+            ID {{t.id}}<br>
+            Status {{t.status}}<br>
+            Created_at {{t.created_at}}
+          </p>
+        </ion-item>
+
+      </div>
+
+
+    </ion-accordion>
+
+
+  </ion-accordion-group>
+
+
+  <ion-refresher slot="fixed" disabled="false" (ionRefresh)="doRefresh($event)">  
+    <ion-refresher-content  
+    pullingIcon="arrow-dropdown"  
+    pullingText="Pull to refresh"  
+    refreshingSpinner="circles"  
+    refreshingText="Refreshing..."></ion-refresher-content>  
+  </ion-refresher>  
+ 
+   
+
+
+</ion-content>

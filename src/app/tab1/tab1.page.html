@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Dashboard</ion-title>
+    <ion-buttons slot="end" (click)="logout()">
+      <ion-title class="logout">
+        <ion-icon class="icons1" name="log-out-outline"></ion-icon>
+      </ion-title>
+
+
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="showdata">
+
+
+  <ion-slides autoplay="5000" loop="true" speed="300" pager="true">
+    <ion-slide>
+      <ion-img src="/assets/repair.jpg"></ion-img>
+    </ion-slide>
+    <ion-slide>
+      <ion-img src="/assets/repair.jpg"></ion-img>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-img src="/assets/repair.jpg"></ion-img>
+    </ion-slide>
+
+
+
+  </ion-slides>
+
+  <br>
+
+
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let t of category_list" (click)="sendtoproduct('categories',t.id)">
+        <!-- <figure style="padding:30px;"> -->
+        <ion-thumbnail>
+          <ion-img class="img" src="{{t.cover}}"></ion-img>
+        </ion-thumbnail>
+
+        <!-- </figure> -->
+        {{t.name}}
+      </ion-col>
+
+
+    </ion-row>
+  </ion-grid>
+
+  <br>
+
+
+  <ion-item *ngFor="let t of products_list" (click)="gotodetails(t.id)">
+
+    <ion-thumbnail slot="start">
+      <img src="{{t.cover}}">
+    </ion-thumbnail>
+    <p> <b> {{t.name}}</b> <br> <br>
+      ₹{{t.original_price | number}} </p>
+  </ion-item>
+
+
+
+
+
+
+</ion-content>
