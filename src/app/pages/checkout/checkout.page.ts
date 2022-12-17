@@ -69,7 +69,7 @@ export class CheckoutPage implements OnInit {
     const modal = await this.modalController.create({
       component: AddAddressPage,
       breakpoints: [0, 0.2, 0.5, 1],
-      initialBreakpoint: 0.2,
+      initialBreakpoint: 1,
 
       componentProps: {
 

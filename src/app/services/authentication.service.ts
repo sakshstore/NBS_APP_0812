@@ -274,20 +274,23 @@ export class AuthenticationService {
     const headers = new HttpHeaders({
       'Authorization': window.localStorage.getItem("token_type") + " " + window.localStorage.getItem("access_token")
     });
-    /*
+   
         return this.http.get<User[]>(this.baseurl + 'auth/adminecommerce/products/getProductById?product_id=' + id, { headers: headers })
           .pipe(
             catchError(e => throwError(e))
     
           );
-          */
+          
 
+ /*
     let url = this.baseurl + 'auth/adminecommerce/products/getProductById?product_id=' + id;
 
     let cacheKey = url;
 
     let request = this.http.get(url, { headers: headers, observe: 'response' });
     return this.cache.loadFromObservable(cacheKey, request).pipe(map(res => res.body));
+
+    */
 
   }
 

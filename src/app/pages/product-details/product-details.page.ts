@@ -56,9 +56,9 @@ export class ProductDetailsPage implements OnInit {
         this.productDetails = data['data'];
 
 
-        this.set_quantity.controls['quantity'].setValue(data['data']['wholesale_min_quantity']);
+       // this.set_quantity.controls['quantity'].setValue(data['data']['wholesale_min_quantity']);
 
-        //  this.set_quantity.controls['quantity'].setValue(1111);
+         this.set_quantity.controls['quantity'].setValue(10);
 
         this.product = {
           id: data['data']['id'],
