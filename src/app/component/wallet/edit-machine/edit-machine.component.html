@@ -1,0 +1,67 @@
+	
+
+<!-- <div class="site">
+ 
+
+<div class="row">
+  <div class="col-md-12"> -->
+
+
+ <form [formGroup]="editForm" (ngSubmit)="onSubmit()"> 
+  <h3>Edit Machine</h3>
+
+     <figure class="figure" style="padding:30px;">
+  <img src="{{editForm.value.image}}" class="img-thumbnail"  width="200px" height="200px">
+
+</figure>
+
+<br>
+ <div class="form-group">
+      <label for="title">Title</label>
+      <input formControlName="title"   placeholder="Title" name="title" class="form-control" id="title" >
+    </div>
+
+
+ <div class="form-group">
+      <label for="brand">Brand</label>
+      <input formControlName="brand"  placeholder="Brand" name="brand" class="form-control" id="brand" >
+    </div>
+
+
+
+     
+ <div class="form-group">
+      <label for="year_of_purchase">Year of Purchase</label>
+      <input formControlName="year_of_purchase"   placeholder="Year of Purchase" name="year_of_purchase" class="form-control" id="year_of_purchase" >
+    </div>
+
+
+     
+ <div class="form-group">
+      <label for="model">Model</label>
+      <input  formControlName="model"   placeholder="Model" name="model" class="form-control" id="model" >
+    </div>
+
+<div class="form-group">
+      <label for="customer_mobile_number">Upload Image</label>
+      <ngx-dropzone (change)="onSelect($event,'machine_image')">
+    <ngx-dropzone-label>Drop the image here!</ngx-dropzone-label>
+
+    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"  [removable]="true" (removed)="onRemove(f)">
+  <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+</ngx-dropzone-image-preview>
+
+
+
+</ngx-dropzone>
+    </div>
+
+
+
+  <div class="modal-footer">
+    <button  class="btn btn-outline-primary btn-sm" >Submit</button>
+
+  </div>
+
+  </form>
+<!-- </div></div></div> -->

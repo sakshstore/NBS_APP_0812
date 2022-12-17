@@ -1,0 +1,97 @@
+<div class="site">
+
+
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="card">
+
+
+                <div class="card-body">
+
+
+
+
+
+                    <h1 class="card-title">in-deposit report </h1>
+                    <p>Include machines which was kept inside service center </p>
+
+
+
+
+                    <div class="table-responsive">
+
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+
+
+                                   
+                                    <th>Job Work ID </th>
+                                    <th>Title</th>
+                                    <th>Customer name </th>
+                                    <th> mobile number </th>
+                                    <th> Machine </th>
+                                    <th> Brand </th>
+                                    <th> Model </th>
+                                    <th> Year of purchase</th>
+                                  
+                                    <th>Status </th>
+
+                                    <th>Date </th>
+
+
+
+
+                                </tr>
+
+
+
+
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let t of in_deposit_report index as i;" (click)="sendto(t.id)">
+
+                                    <td> {{t.job_work_id}}</td>
+                                    <td>{{t.job_work_title}}</td>
+
+
+
+                                    <td>{{t.customer_name }} </td>
+
+
+                                    <td> {{t.mobile_number }} </td>
+
+
+
+                                    <td>{{t.machine_title }} </td>
+
+                                    <td> {{t.brand }} </td>
+                                    <td>{{t.model }} </td>
+
+                                    <td> {{t.year_of_purchase }}</td>
+
+
+                                    
+                                    <td>{{t.job_work_status}}</td>
+
+                                    <td>{{t.job_work_created_at}}</td>
+
+
+
+
+
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

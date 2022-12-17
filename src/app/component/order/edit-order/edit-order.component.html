@@ -1,0 +1,86 @@
+ <div class="site">
+<div class="row">
+  <div class="col-md-12">
+  
+<h3>Edit Order</h3><br>
+
+
+ <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+
+<div class="form-group">
+      <label for="amount">Customer</label>
+      <select name="uid" id="uid" class="form-control" formControlName="uid">
+  <option *ngFor="let t of customer_list index as i;" value="{{t.customer_id}}" (click)="address(t.customer_id)">{{t.name}}</option>
+
+</select>
+     
+    </div>
+
+<div class="form-group">
+      <label for="amount">Product</label>
+      <select name="product_name" id="product_name" class="form-control" formControlName="product_name">
+  <option *ngFor="let t of products_list index as i;" value="{{t.id}}" >{{t.name}}</option>
+
+</select>
+     
+    </div>
+
+<div class="form-group">
+      <label for="amount">Address list</label>
+      <select name="product_name" id="product_name" class="form-control" formControlName="product_name">
+  <option *ngFor="let t of address_list index as i;" value="{{t.id}}" >{{t.name}}</option>
+
+</select>
+     
+    </div>
+
+
+    <div class="form-group">
+      <label for="pay_method">Payment Method</label>
+      <select name="pay_method" id="pay_method" class="form-control" formControlName="pay_method">
+  <option  value="Paytm" >Paytm</option>
+  <option  value="Bank" >Bank</option>
+  <option  value="COD" >COD</option>
+
+</select>
+     
+    </div>
+
+       <div class="form-group">
+        <label for="service_tax">Service Tax</label>
+        <input formControlName="service_tax" placeholder="Service Tax" name="service_tax" class="form-control"
+          id="service_tax">
+      </div> 
+       <div class="form-group">
+        <label for="grand_total">Grand Total</label>
+        <input formControlName="grand_total" placeholder="Grand Total" name="grand_total" class="form-control"
+          id="grand_total">
+      </div> 
+
+
+   <div class="form-group">
+        <label for="shipping_charge">Shipping Charge</label>
+        <input formControlName="shipping_charge" placeholder="Shipping Charge" name="shipping_charge" class="form-control"
+          id="shipping_charge">
+      </div>
+
+<div class="form-group">
+        <label for="coupons">Coupan Code</label>
+        <input formControlName="coupons" placeholder="Coupan Code" name="coupons" class="form-control"
+          id="coupons">
+      </div> 
+   
+        <div class="form-group">
+      <label for="address">Address</label>
+      <textarea rows="3" cols="4" formControlName="address"  placeholder="Enter Address..." name="address" class="form-control" id="address" ></textarea>
+    </div>
+
+
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-outline-primary">Submit</button>
+
+      </div>
+
+    </form>
+
+</div></div></div>

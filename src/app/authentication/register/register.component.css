@@ -1,0 +1,15 @@
+.login-box {
+    box-shadow: 0 0 5px;
+    padding: 20px 20px;
+    margin-top: 50%;
+    border-radius: 10px;
+}
+.login-box .box-title {
+    margin-top: 0;
+    font-size: 17px;
+    text-align: center;
+    font-weight: 700;
+}
+.login-box label {
+    font-weight: 300;
+}

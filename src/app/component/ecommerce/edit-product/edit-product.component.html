@@ -1,0 +1,110 @@
+<div class="site">
+<div class="row">
+  <div class="col-md-12">
+  
+   
+<form [formGroup]="editForm" (ngSubmit)="submit()"> 
+<div > 
+
+     	  <h3>Edit Product</h3>
+
+
+
+ <div class="form-group">
+      <label for="name">Name</label>
+      <input rows="3" cols="4"  formControlName="name"  placeholder="Name" name="name" class="form-control" id="name" >
+    </div>
+
+<div class="form-group">
+      <label for="original_price">Original Price</label>
+      <input formControlName="original_price" placeholder="Original Price" name="original_price" class="form-control" id="original_price" >
+    </div>
+
+<div class="form-group">
+      <label for="sell_price">Sell Price</label>
+      <input formControlName="sell_price" placeholder="Sell Price" name="sell_price" class="form-control" id="sell_price" >
+    </div>
+
+
+<div class="form-group">
+      <label for="discount">Discount</label>
+      <input formControlName="discount" placeholder="Discount" name="discount" class="form-control" id="discount" >
+    </div>
+
+
+<div class="form-group">
+      <label for="wholesale_price">WholeSale Price</label>
+      <input formControlName="wholesale_price" placeholder="WholeSale Price" name="wholesale_price" class="form-control" id="wholesale_price" >
+    </div>
+
+
+<div class="form-group">
+      <label for="discount">WholeSale Minimum Quantity</label>
+      <input type="number" formControlName="wholesale_min_quantity" placeholder="WholeSale Minimum Quantity" name="wholesale_min_quantity" class="form-control" id="wholesale_min_quantity" >
+    </div>
+    
+
+<div class="form-group">
+      <label for="amount">Category</label>
+      <select name="cate_id" id="cate_id" class="form-control" formControlName="cate_id">
+  <option *ngFor="let t of category_list index as i;" value="{{t.id}}" >{{t.name}}</option>
+
+</select>
+     
+    </div>
+
+
+<div class="form-group">
+      <label for="amount">Subcategory</label>
+      <select name="sub_categories_id" id="sub_categories_id" class="form-control" formControlName="sub_categories_id">
+  <option *ngFor="let t of subcategory_list index as i;" value="{{t.id}}" >{{t.name}}</option>
+
+</select>
+     
+    </div>
+
+
+<div class="form-group">
+      <label for="amount">Brand</label>
+      <select name="brand_id" id="brand_id" class="form-control" formControlName="brand_id">
+  <option *ngFor="let t of brand_list index as i;" value="{{t.id}}" >{{t.name}}</option>
+
+</select>
+     
+    </div>
+
+
+   <div class="form-group">
+      <label for="descriptions">Description</label>
+      <textarea rows="3" cols="4" formControlName="descriptions"  placeholder="Enter Description..." name="descriptions" class="form-control" id="descriptions" ></textarea>
+    </div>
+fddf{{editForm.value.cover}}
+       <figure class="figure" style="padding:30px;">
+  <img src="{{editForm.value.cover}}" class="img-thumbnail"  width="200px" height="200px">
+
+</figure>
+
+
+<br> 
+<div class="form-group">
+      <label for="cover">Upload Image</label>
+      <ngx-dropzone (change)="onSelect($event,'cover_image')">
+    <ngx-dropzone-label>Drop the image here!</ngx-dropzone-label>
+
+    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"  [removable]="true" (removed)="onRemove(f)">
+  <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+</ngx-dropzone-image-preview>
+</ngx-dropzone>
+    </div>
+       
+
+
+  <div class="modal-footer">
+    <button  type="submit" class="btn btn-outline-primary btn-sm" >Submit</button>
+
+  </div>
+
+  
+</div>
+</form>
+   </div></div></div>

@@ -1,0 +1,39 @@
+<h1 class="card-title">
+    <div class="">
+        <p>Customer report</p>
+    </div>
+
+    
+    
+
+</h1>
+
+      <button class="btn btn-primary btn-sm " (click)="onBtnExport()">Download CSV export file</button>
+      
+
+
+ 
+<!-- AG Grid Angular Component -->
+<ag-grid-angular
+   style="width: 100%; height: 100%"
+   class="ag-theme-alpine"
+   [columnDefs]="columnDefs"
+   [defaultColDef]="defaultColDef"
+   [rowData]="customer_report "
+   [rowSelection]="'multiple'"
+   [animateRows]="true"
+
+      [pagination]="true"
+      (cellClicked)="onCellClicked($event)"
+
+
+  [paginationAutoPageSize]="true" 
+
+
+   (gridReady)="onGridReady($event)" 
+ ></ag-grid-angular>
+
+
+
+
+ 

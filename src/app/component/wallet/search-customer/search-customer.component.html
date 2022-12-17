@@ -1,0 +1,355 @@
+<h1 class="card-title">
+
+  {{name}} {{mobile_number}}
+
+
+</h1>
+
+
+
+<button type="button" (click)="edit_customer()" class="btn btn-primary ">Edit this customer</button>
+
+
+
+<button type="button" (click)="add_job_work_for_this()" class="btn btn-primary ">Add Job
+  Work for this customer</button>
+
+ 
+  
+
+<form [formGroup]="addForm" (ngSubmit)="EditCustomerSubmit()" *ngIf="show_edit">
+
+  <h3>Add Customer</h3>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input   formControlName="name" placeholder="Name" name="name" class="form-control" id="name">
+  </div>
+
+  <div class="form-group">
+    <label for="mobile_number">Mobile Number</label>
+    <input pattern="[789][0-9]{9}" formControlName="mobile_number" placeholder="Mobile Number" name="mobile_number"
+      class="form-control" id="mobile_number">
+  </div>
+  <div class="form-group">
+    <label for="alternative_mobile_number">Alternative Mobile Number</label>
+    <input pattern="[789][0-9]{9}" formControlName="alternative_mobile_number" placeholder="Alternative Mobile Number"
+      name="alternative_mobile_number" class="form-control" id="alternative_mobile_number">
+  </div>
+
+  <div class="form-group">
+  <label for="city">City</label>
+  <input   formControlName="city" placeholder="City" name="city" class="form-control" id="city">
+</div>
+
+<div class="form-group">
+  <label for="pincode">Pincode</label>
+  <input formControlName="pincode" placeholder="Pincode" name="pincode" class="form-control"
+    id="pincode">
+</div>
+
+
+<div class="form-group">
+  <label for="address">Address</label>
+  <textarea rows="3" cols="4" formControlName="address" placeholder="Enter Address..." name="address"
+    class="form-control" id="address"></textarea>
+</div>
+
+<hr />
+
+ 
+ 
+<div class="form-group">
+  <label for="customer_type">Choose your customer_type</label>
+<select  class="form-control"  formControlName="customer_type">
+  <option [ngValue]="null" disabled>Choose your customer_type</option>
+
+
+  <option *ngFor="let customer_type_value of customer_type_data" [ngValue]="customer_type_value">
+    {{customer_type_value }}
+  </option>
+
+
+</select>
+</div>
+  <div class="modal-footer">
+    <button [disabled]="!addForm.valid" class="btn btn-outline-primary btn-sm">Submit</button>
+
+  </div>
+
+</form>
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<mat-accordion>
+
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+
+      <mat-panel-title>
+        Customer Details
+      </mat-panel-title>
+
+    </mat-expansion-panel-header>
+
+
+    Name : {{name}}<br>
+    Mobile Number : {{mobile_number}}
+
+
+  </mat-expansion-panel>
+  <br>
+
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+
+      <mat-panel-title>
+        Address Details
+      </mat-panel-title>
+
+    </mat-expansion-panel-header>
+    <br>
+    <div class="float-right">
+      <button type="button" (click)="show_address(customer_id)" class="btn btn-secondary btn-sm">Show
+        Address</button>
+
+    </div>
+
+    <br><br>
+
+    <div class="row">
+
+
+      <div class="col-md-4  " *ngFor="let add of address index as i;">
+        <mat-card class="  example-card">
+
+          <mat-card-content>
+            <p>Mobile Number : {{add.mobile_number}}</p>
+            <p>City : {{add.city}}</p>
+            <p>Pincode: {{add.pincode}}</p>
+            <p>Address Line 1 : {{add.address}}</p>
+            <p>Address Line 2: {{add.address}}</p>
+
+          </mat-card-content>
+
+        </mat-card>
+
+      </div>
+    </div>
+    <br>
+
+
+  </mat-expansion-panel>
+  <br>
+
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+
+      <mat-panel-title>
+        Machine Details
+      </mat-panel-title>
+
+    </mat-expansion-panel-header>
+
+
+
+
+    <br>
+    <div class="float-right">
+      <button type="button" (click)="show_machine(customer_id)" class="btn btn-secondary btn-sm">Show
+        Machine</button>
+
+    </div>
+
+    <br><br>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let m of machine index as i;">
+        <mat-card class="example-card">
+          <mat-card-title>{{m.title}}</mat-card-title>
+
+          <mat-card-content>
+            <i class="fas fa-image  fa-5x"></i>
+            <br />
+            Brand {{m.brand}} <br /> Model {{m.model}} <br /> Year of purchase {{m.year_of_purchase}}
+
+
+          </mat-card-content>
+
+        </mat-card>
+      </div>
+
+
+    </div>
+
+  </mat-expansion-panel>
+  <br>
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+
+      <mat-panel-title>
+        Problem List
+      </mat-panel-title>
+
+    </mat-expansion-panel-header>
+
+
+    <div class="float-right">
+      <button type="button" (click)="show_job_list(customer_id)" class="btn btn-secondary btn-sm">Show Job
+        List</button>
+
+    </div>
+
+    <div class="table-responsive">
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Job Work ID </th>
+            <th>Title</th>
+
+            <th> Machine </th>
+            <th> Estimate Total </th>
+            <th>Parts details </th>
+            <th>Date </th>
+
+
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let t of servicelist index as i;" (click)="sendto()">
+
+            <td>{{t.id}}</td>
+            <td>{{t.title}}</td>
+
+            <td></td>
+            <td></td>
+            <td></td>
+
+
+            <td>{{t.created_at}}</td>
+
+
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+  </mat-expansion-panel>
+
+  <br>
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+
+      <mat-panel-title>
+        Estimate List
+      </mat-panel-title>
+
+    </mat-expansion-panel-header>
+
+
+    <div class="float-right">
+      <button type="button" (click)="show_estimate_list(customer_id)" class="btn btn-secondary btn-sm">Show
+        Estimate List</button>
+
+    </div>
+
+    <div class="table-responsive">
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Estimate ID</th>
+            <th>Job Work Id</th>
+
+            <th>Amount</th>
+            <th>Date </th>
+            <th>Status</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let t of estimate_list index as i;">
+            <td>{{t.estimate_id}}</td>
+            <td>{{t.job_work_id}}</td>
+
+            <td>{{t.estimate_total}}</td>
+            <td>{{t.created_at}}</td>
+            <td>{{t.estimate_status}}</td>
+
+
+
+
+
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </mat-expansion-panel>
+
+
+
+  <br>
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+
+      <mat-panel-title>
+        Notes List
+      </mat-panel-title>
+
+    </mat-expansion-panel-header>
+
+
+    <div class="float-right">
+      <button type="button" (click)="show_notes_list(customer_id)" class="btn btn-secondary btn-sm">Show Notes
+        List</button>
+
+    </div>
+
+    <div class="table-responsive">
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Job Work Id</th>
+
+            <th>Note</th>
+            <th>Date </th>
+            <th>Status</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let t of notes_list index as i;">
+            <td>{{t.id}}</td>
+            <td>{{t.job_work_id}}</td>
+
+            <td>{{t.notes}}</td>
+            <td>{{t.created_at}}</td>
+            <td>{{t.status}}</td>
+
+
+
+
+
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

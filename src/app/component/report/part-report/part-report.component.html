@@ -1,0 +1,71 @@
+ 
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="card">
+
+
+                <div class="card-body">
+
+  
+                    <h1 class="card-title">Products report  </h1>
+                    <p>Include products which was included in the estimate [ selected only estimate with status paid ]</p>
+             
+ 
+                  
+                    
+
+
+                    <div class="table-responsive">
+
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+
+                                <tr>
+                                    <th>Job Work ID </th>
+                                    <th>Estimate ID </th>
+                                    <th>product_name </th>
+                                    <th> product_amount</th>
+                                    <th>   </th>
+                                    <th>  </th>
+                                    <th>Date </th>
+
+
+
+                                </tr>
+
+
+
+
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let t of part_report index as i;">
+                                    <td>{{t.estimate_id}}</td>
+                                    <td>{{t.product_name}}</td>
+                                    <td>{{t.product_amount}}</td>
+
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+
+
+                                    <td>{{t.created_at}}</td>
+
+
+
+
+
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div> 

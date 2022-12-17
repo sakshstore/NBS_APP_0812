@@ -1,0 +1,42 @@
+   <div class="site">
+
+  <div class="row">
+     <div class="col-md-12">
+
+
+<h3>Admin Login history</h3><br>
+   <div class="table-responsive">
+
+                <table class="table">
+                  
+
+ <thead>
+                    <tr>
+                      <th>Username </th>
+                      <th>IP</th>
+
+
+                      <th>Date </th>
+
+
+                 
+
+                    </tr>
+                  </thead>
+  <tr *ngFor="let t of login_history index as i;" >
+
+
+                    <td >{{t.username}}   </td>
+                    <td  > {{t.ip}}</td>
+                    <td  >{{t.created_at}}  </td>
+                    
+                    </tr>
+
+
+                </table>
+
+            </div>
+
+
+        </div></div></div>
+

@@ -1,0 +1,207 @@
+@import 'ag-grid-community/dist/styles/ag-grid.css';
+@import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
+
+
+/* You can add global styles to this file, and also import other style files */
+#content {
+  padding-top: 40px;
+}
+
+.cp {
+  cursor: pointer;
+}
+
+.login-box {
+
+  background-color: #fff;
+
+}
+
+
+.mat-drawer,
+.mat-accordion,
+.mat-expansion-panel,
+.mat-expansion-panel-header-title {
+
+  background-color: rgb(13, 53, 120);
+  ;
+
+  color: #fff;
+
+}
+
+.table th {
+  background-color: rgb(13, 53, 120);
+  ;
+
+  color: #fff;
+}
+
+.mat-toolbar-row {
+
+  background-color: rgb(13, 53, 120);
+  ;
+  color: #fff;
+}
+
+body,
+main-content {
+  background-color: rgb(13, 53, 120) !important;
+
+
+}
+
+
+.mat-tab-header   , .mat-tab-label, .mat-tab-link
+{ 
+  background-color: rgb(13, 53, 120);
+ 
+
+  color: #fff !important;
+
+}
+
+ .mat-tab-label, .mat-tab-link
+{opacity: 1;
+
+}
+
+
+
+
+.jumbotron {
+  padding: 1rem;
+  ;
+}
+
+
+h2 {
+  font-size: 2rem;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+.basepage,
+.walletpage,
+.site {
+
+  padding: 30px;
+
+
+}
+
+
+mat-toolbar {
+
+
+  background-color:
+    rgb(13, 53, 120);
+  ;
+  color:
+    #fff;
+  font-family: Open Sans, sans-serif;
+  font-size: .9375rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+
+
+  box-shadow: 0 .5rem 1rem 0 #031b4d;
+
+
+}
+
+
+
+
+
+
+
+mat-panel-title {
+  color:
+    #fff;
+}
+
+mat-expansion-panel {
+
+
+  background-color:
+    rgb(13, 53, 120);
+  ;
+  box-shadow: 0 .5rem 1rem 0 rgb(13, 53, 120);
+  ;
+  color:
+    #fff;
+
+  scrollbar-face-color: #101426;
+  scrollbar-track-color: #192038;
+}
+
+
+
+mat-sidenav {
+  width: 16rem;
+
+  background-color:
+    rgb(13, 53, 120);
+  ;
+  box-shadow: 0 .5rem 1rem 0 #1a1f33;
+  color:
+    #fff;
+  font-family: Open Sans, sans-serif;
+  font-size: .9375rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  width: 16rem;
+  scrollbar-face-color: #101426;
+  scrollbar-track-color: #192038;
+
+}
+
+mat-nav-list a {
+
+  color: #fff;
+  font-family: Open Sans, sans-serif;
+  font-size: .9375rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+
+
+}
+
+
+
+.mat-list-base .mat-list-item {
+  color: #fff;
+
+}
+
+
+
+
+.bgcol {
+  background-color: #01579b;
+  color: #fff;
+}
+
+.whcol {
+
+  background-color: #0288d1;
+  color: #fff;
+}
+
+
+ion-card-title,
+ion-card-content,
+ion-card-subtitle {
+  color: #fff;
+
+}

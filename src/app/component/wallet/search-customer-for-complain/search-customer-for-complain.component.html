@@ -1,0 +1,660 @@
+<div class="site">
+  <div class="row">
+    <div class="col-md-12">
+
+
+
+      <form *ngIf="step1" class="form-inline" [formGroup]="searchForm" (ngSubmit)="search()">
+
+
+
+
+
+
+        <div class="form-group mx-sm-3 mb-2">
+          <input type="text" width=10 class="form-control" id="mobile_number" placeholder="Customer Mobile Number"
+            formControlName="customer_mobile_number">
+        </div>
+        <button type="submit" class="btn btn-primary ">Search Customer</button>
+
+        <a  class="btn btn-primary" mat-list-item routerLink="/add-customer">Add Customer</a> 
+
+        <button type="button"  routerLink="/add-customer/add-job-work"   class="btn btn-primary ">Add Job work for new a
+          customer</button>
+
+          
+          
+      </form>
+
+
+      <form *ngIf="step1" class="form-inline" [formGroup]="jobsearchForm" (ngSubmit)="jobsearch()">
+        <div class="form-group mx-sm-3 mb-2">
+          <input type="text" width=10 class="form-control" id="job_work_id" placeholder="Job Work Id  "
+            formControlName="job_work_id">
+        </div>
+        <button type="submit" class="btn btn-primary ">Search Job work</button>
+
+      </form>
+
+
+      
+
+
+
+      <form [formGroup]="addForm" (ngSubmit)="submit()">
+
+
+
+        <div class="step1" *ngIf="step1">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div *ngIf="show">
+
+
+            <h3> Step 1 </h3>
+
+
+
+            <button type="button" (click)="onSubmit1()" class="btn btn-primary btn-sm">Add job work for this customer
+
+            </button>
+
+
+            <mat-accordion>
+
+              <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+
+                  <mat-panel-title>
+                    Customer Details
+                  </mat-panel-title>
+
+                </mat-expansion-panel-header>
+
+                <mat-card class="example-card">
+                  <mat-card-title>Customer Details</mat-card-title>
+
+
+                  <mat-card-content>
+
+
+                    <p>Name : {{customer_details.name}}</p>
+                    <p>Mobile Number : {{customer_details.mobile_number}}</p>
+                  </mat-card-content>
+                </mat-card>
+
+
+                <div class="modal-footer">
+                  <button type="button" (click)="onSubmit1()" class="btn btn-primary  ">Next</button>
+
+                </div>
+
+
+              </mat-expansion-panel>
+
+
+
+
+
+
+              <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+
+                  <mat-panel-title>
+                    Address Details
+                  </mat-panel-title>
+
+                </mat-expansion-panel-header>
+
+
+
+
+                <div class="row">
+
+
+                  <div class="col-md-4  " *ngFor="let add of address_list index as i;">
+                    <mat-card class="  example-card">
+
+                      <mat-card-content>
+                        <p>Mobile Number : {{add.mobile_number}}</p>
+                        <p>City : {{add.city}}</p>
+                        <p>Pincode: {{add.pincode}}</p>
+                        <p>Address Line 1 : {{add.address}}</p>
+                        <p>Address Line 2: {{add.address}}</p>
+
+                      </mat-card-content>
+
+                    </mat-card>
+
+                  </div>
+                </div>
+
+
+              </mat-expansion-panel>
+
+
+
+
+
+
+
+              <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+
+                  <mat-panel-title>
+                    Machine Details
+                  </mat-panel-title>
+
+                </mat-expansion-panel-header>
+
+
+
+
+
+                <div class="row">
+                  <div class="col-md-4" *ngFor="let m of machine_list index as i;">
+                    <mat-card class="example-card">
+                      <mat-card-title>{{m.title}}</mat-card-title>
+
+                      <mat-card-content>
+
+                        <figure class="figure" style="padding:30px;">
+                          <img src="{{m.image}}" class="img-thumbnail" width="200px" height="200px">
+
+                        </figure>
+
+                        <!--  <i class="fas fa-image  fa-5x"></i> -->
+                        <br />
+                        Brand {{m.brand}} <br /> Model {{m.model}}
+
+
+                      </mat-card-content>
+
+                    </mat-card>
+                  </div>
+
+
+                </div>
+
+              </mat-expansion-panel>
+
+              <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+
+                  <mat-panel-title>
+                    Job work List List
+                  </mat-panel-title>
+
+                </mat-expansion-panel-header>
+
+
+
+
+                <div class="table-responsive">
+
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Job Work ID </th>
+                        <th>Title</th>
+
+                        <th> Machine </th>
+                        <th> Estimate Total </th>
+                        <th>Parts details </th>
+                        <th>Date </th>
+
+
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let t of job_work_list index as i;">
+
+                        <td>{{t.id}}</td>
+                        <td>{{t.title}}</td>
+
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+
+                        <td>{{t.created_at}}</td>
+
+
+
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+
+              </mat-expansion-panel>
+
+
+              <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+
+                  <mat-panel-title>
+                    Estimate List
+                  </mat-panel-title>
+
+                </mat-expansion-panel-header>
+
+
+
+
+                <div class="table-responsive">
+
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Estimate ID</th>
+                        <th>Job Work Id</th>
+
+                        <th>Amount</th>
+                        <th>Date </th>
+                        <th>Status</th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let t of estimate_list index as i;">
+                        <td>{{t.estimate_id}}</td>
+                        <td>{{t.job_work_id}}</td>
+
+                        <td>{{t.estimate_total}}</td>
+                        <td>{{t.created_at}}</td>
+                        <td>{{t.estimate_status}}</td>
+
+
+
+
+
+
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </mat-expansion-panel>
+
+
+
+
+              <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+
+                  <mat-panel-title>
+                    Notes List
+                  </mat-panel-title>
+
+                </mat-expansion-panel-header>
+
+
+
+                <div class="table-responsive">
+
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Job Work Id</th>
+
+                        <th>Note</th>
+                        <th>Date </th>
+                        <th>Status</th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let t of notes_list index as i;">
+                        <td>{{t.id}}</td>
+                        <td>{{t.job_work_id}}</td>
+
+                        <td>{{t.notes}}</td>
+                        <td>{{t.created_at}}</td>
+                        <td>{{t.status}}</td>
+
+
+
+
+
+
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </mat-expansion-panel>
+
+
+
+
+            </mat-accordion>
+
+
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="step2" *ngIf="step2">
+          <h3> Step 2 </h3>
+          <div class="float-right" *ngIf="!machinesteps">
+            <mat-icon (click)="add_machine()">add_box</mat-icon>
+          </div>
+
+          <div class="row" *ngIf="!machinesteps">
+
+            <div class="col-md-6" *ngFor="let m of machine_list index as i;">
+
+
+
+              <mat-card class="example-card">
+                <mat-card-title>{{m.title}}</mat-card-title>
+                <mat-card-subtitle>Electronics</mat-card-subtitle>
+                <mat-card-content>
+
+                  <figure class="figure" style="padding:30px;">
+                    <img src="{{m.image}}" class="img-thumbnail" width="200px" height="200px">
+
+                  </figure>
+                  <!-- <img src="{{t.image}}" /> -->
+                </mat-card-content>
+                <mat-card-actions>
+                  <button (click)="onmachineSubmit2(m)" class="btn btn-outline-primary btn-sm">Select</button>
+
+                </mat-card-actions>
+              </mat-card>
+            </div>
+
+
+
+          </div>
+
+
+          <mat-card class="example-card" *ngIf="machinesteps">
+            <h3>Add Machine</h3>
+
+
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input formControlName="machine_title" placeholder="Title" name="machine_title" class="form-control"
+                id="machine_title">
+            </div>
+
+
+            <div class="form-group">
+              <label for="brand">Brand</label>
+              <input formControlName="brand" placeholder="Brand" name="brand" class="form-control" id="brand">
+            </div>
+
+
+
+
+
+
+
+            <div class="form-group">
+              <label for="model">Model</label>
+              <input formControlName="model" placeholder="Model" name="model" class="form-control" id="model">
+            </div>
+
+            <div class="form-group">
+              <label for="customer_mobile_number">Upload Image</label>
+              <ngx-dropzone (change)="onSelect($event,'machine_image')">
+                <ngx-dropzone-label>Drop the image here!</ngx-dropzone-label>
+
+                <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
+                  [removable]="true" (removed)="onRemove(f)">
+                  <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                </ngx-dropzone-image-preview>
+              </ngx-dropzone>
+            </div>
+
+            <div class="modal-footer">
+              <button (click)="onSubmit2()" class="btn btn-outline-primary btn-sm">Next</button>
+            </div>
+          </mat-card>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="step3" *ngIf="step3">
+          <h3> Step 3 </h3>
+
+          <div class="float-right" *ngIf="!addresssteps">
+            <mat-icon (click)="add_address()">add_box</mat-icon>
+
+          </div>
+
+
+          <div class="row" *ngIf="!addresssteps">
+
+            <div class="col-md-4" *ngFor="let add of address_list index as i;">
+
+              <mat-card class="example-card">
+
+                <mat-card-content>
+                  <p>Mobile Number : {{add.mobile_number}}</p>
+                  <p>City : {{add.city}}</p>
+                  <p>Pincode: {{add.pincode}}</p>
+                  <p>Address Line 1 : {{add.address}}</p>
+                  <p>Address Line 2: {{add.address}}</p>
+
+                </mat-card-content>
+                <mat-card-actions>
+
+                  <button (click)="onmachineSubmit3(add)" class="btn btn-outline-primary btn-sm">Select</button>
+
+                </mat-card-actions>
+              </mat-card>
+            </div>
+          </div>
+
+          <mat-card class="example-card" *ngIf="addresssteps">
+
+            <h3>Add Address</h3>
+            <div class="form-group">
+              <label for="description">Name</label>
+              <input rows="3" cols="4" formControlName="name" placeholder="Name" name="name" class="form-control"
+                id="name">
+            </div>
+
+            <div class="form-group">
+              <label for="mobile_number">Mobile Number</label>
+              <input rows="3" cols="4" formControlName="mobile_number" placeholder="Mobile Number" name="mobile_number"
+                class="form-control" id="mobile_number">
+            </div>
+
+
+            <div class="form-group">
+              <label for="city">City</label>
+              <input rows="3" cols="4" formControlName="city" placeholder="City" name="city" class="form-control"
+                id="city">
+            </div>
+
+            <div class="form-group">
+              <label for="pincode">Pincode</label>
+              <input rows="3" cols="4" formControlName="pincode" placeholder="Pincode" name="pincode"
+                class="form-control" id="pincode">
+            </div>
+
+
+            <div class="form-group">
+              <label for="address">Address</label>
+              <textarea rows="3" cols="4" formControlName="address" placeholder="Enter Address..." name="address"
+                class="form-control" id="address"></textarea>
+            </div>
+
+
+            <div class="modal-footer">
+              <button (click)="onSubmit3()" class="btn btn-outline-primary btn-sm">Next</button>
+
+            </div>
+          </mat-card>
+
+        </div>
+
+
+        <div class="step4" *ngIf="step4">
+          <h3> Step 4 </h3>
+          <h3>Add Job Work details</h3>
+
+
+          <div class="form-group">
+            <label for="title"> Title</label>
+            <input formControlName="title" placeholder="Title" name="title" class="form-control" id="title">
+          </div>
+
+          <div class="form-group">
+            <label for="title"> Amount</label>
+            <input formControlName="amount" placeholder="Amount" name="amount" class="form-control" id="amount">
+          </div>
+
+
+          <div class="form-group">
+            <label for="problem_details">Problem Details</label>
+            <textarea rows="3" cols="7" formControlName="problem_details" placeholder="Problem Details..."
+              name="problem_details" class="form-control" id="problem_details"></textarea>
+          </div>
+
+
+          <div class="form-group">
+            <label for="image">Upload Image</label>
+            <ngx-dropzone (change)="onSelect($event,'problem_image')">
+              <ngx-dropzone-label>Drop the image here!</ngx-dropzone-label>
+
+              <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
+                [removable]="true" (removed)="onRemove(f)">
+                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+              </ngx-dropzone-image-preview>
+            </ngx-dropzone>
+            <!--   <input type="file" formControlName="image" placeholder="Upload Image" name="image" class="form-control"
+              id="image"> -->
+          </div>
+
+          <div class="modal-footer">
+            <button (click)="onSubmit4()" type="button" class="btn btn-outline-primary btn-sm">Next</button>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="step5" *ngIf="step5">
+          <h3> Step 5 </h3>
+          <mat-card class="example-card">
+            <mat-card-title>Problem Title {{title}}</mat-card-title><br>
+
+          </mat-card>
+          <br>
+          <span>
+
+
+            <mat-card class="example-card">
+              <mat-card-title> Problem Details</mat-card-title><br>
+
+              <mat-card-content>
+                <p class="text-start mx-auto"> {{problem_details}}</p>
+
+
+
+
+              </mat-card-content>
+
+            </mat-card>
+
+
+            <mat-card class="example-card">
+              <mat-card-title>Address</mat-card-title><br>
+
+              <mat-card-content>
+                <p>Mobile Number : {{customer_mobile_number}}</p>
+                <p>City : {{city}}</p>
+                <p>Pincode: {{pincode}}</p>
+                <p>Address Line 1 : {{address}}</p>
+                <p>Address Line 2: {{address}}</p>
+
+              </mat-card-content>
+
+            </mat-card>
+
+
+            <mat-card class="example-card">
+              <mat-card-title>Machine Details</mat-card-title><br>
+
+              <mat-card-content>
+                <mat-card-title>{{machine_title}}</mat-card-title>
+                <mat-card-subtitle>Electronics</mat-card-subtitle>
+                <mat-card-content>
+                  <i class="fa fa-plus fa-6x" aria-hidden="true"></i>
+                </mat-card-content>
+
+              </mat-card-content>
+              <mat-card-actions>
+                <button class="btn btn-primary btn-sm" type="submit">Confirm and Generate bar code</button>
+
+
+              </mat-card-actions>
+            </mat-card>
+
+
+
+          </span>
+
+
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

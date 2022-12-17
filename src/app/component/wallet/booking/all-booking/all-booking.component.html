@@ -1,0 +1,121 @@
+
+
+
+<div class="site">
+ 
+
+<div class="row">
+  <div class="col-md-12">
+    
+      <div class="card">
+
+  
+  <div class="card-body">
+
+<h5 class="card-title">All Booking
+
+  
+      
+
+   
+ </h5>
+
+ 
+  <div  class="table-responsive">
+
+
+
+
+<table mat-table
+       [dataSource]="dataSource" multiTemplateDataRows
+       class="mat-elevation-z8">
+  <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+    <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+  </ng-container>
+
+  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+      <div class="example-element-detail"
+           [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+        <div class="example-element-diagram">
+       
+          <div class="example-element-symbol">  <img src="{{element.profile_pic}}" width="50px" height="50px"> </div>
+
+        </div>
+        <div class="example-element-description">
+        
+      
+
+<div class="row">
+      
+<div class="col">
+<b><u style="color:blue" (click)="sendto(element.booking_id,element.user_id,element.client_id)">View</u></b>
+<br>
+
+  </div>
+
+
+      </div>
+ 
+
+
+          <span class="example-element-description-attribution"> </span>
+        </div>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"
+      class="example-element-row"
+      [class.example-expanded-row]="expandedElement === element"
+      (click)="expandedElement = expandedElement === element ? null : element">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+</table>
+
+
+
+
+
+
+</div>
+
+    <div  *ngIf="loading">
+  <div class="spinner-border text-primary" role="status">
+    <span class="sr-only">Loading...</span>
+
+  </div>
+</div>  
+<div class="text-center" *ngIf="testCount==0">
+
+ 
+ 
+<p>No Booking found</p>
+</div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+

@@ -1,0 +1,155 @@
+<div class="site">
+
+
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="card">
+
+
+                <div class="card-body">
+
+                    <h1 class="card-title">
+                        <p>estimate-report works!</p>
+
+                      
+
+                    </h1>
+
+
+
+
+                    <mat-tab-group>
+                        <mat-tab label="All "> <div class="table-responsive">
+
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+    
+                                    <tr>
+                                      
+                                        <th> Estimate ID </th>
+                                       
+                                        <th>Customer name  </th>
+                                            <th> mobile number </th>
+                                       
+                                       
+                                        <th> Estimate Total </th><th>Estimate Status </th>
+                                        <th>Date </th>
+    
+    
+    
+                                    </tr>
+    
+    
+    
+    
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let t of estimate_report index as i;" >
+                                        <tr *ngFor="let t of estimate_report index as i;" >
+                                            <td  *ngIf="t.estimate_status  != 'Paid'">{{t.id}}</td>
+                                          
+        
+        
+        
+                                            <td  *ngIf="t.estimate_status   !=   'Paid'">{{t.name }} </td>
+        
+                                            
+                                            <td  *ngIf="t.estimate_status    !=  'Paid'">  {{t.mobile_number }}   </td>
+                                            
+                                            
+                                             
+                                             
+        
+                                            <td  *ngIf="t.estimate_status    !=   'Paid'">  {{t.estimate_total}} </td>   
+        
+                                            <td *ngIf="t.estimate_status    !=   'Paid'">  {{t.estimate_status}} </td>   
+        
+                                            <td  *ngIf="t.estimate_status    !=  'Paid'">{{t.created_at}}</td>
+        
+        
+        
+        
+        
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </div> </mat-tab>
+
+
+                        <mat-tab label="Paid "><div class="table-responsive">
+
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+
+                                <tr>
+                                  
+                                    <th> Estimate ID </th>
+                                   
+                                    <th>Customer name  </th>
+                                        <th> mobile number </th>
+                                   
+                                   
+                                    <th> Estimate Total </th><th>Estimate Status </th>
+                                    <th>Date </th>
+
+
+
+                                </tr>
+
+
+
+
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let t of estimate_report index as i;" >
+                                    <td  *ngIf="t.estimate_status == 'Paid'">{{t.id}}</td>
+                                  
+
+
+
+                                    <td  *ngIf="t.estimate_status == 'Paid'">{{t.name }} </td>
+
+                                    
+                                    <td  *ngIf="t.estimate_status == 'Paid'">  {{t.mobile_number }}   </td>
+                                    
+                                    
+                                     
+                                     
+
+                                    <td  *ngIf="t.estimate_status == 'Paid'">  {{t.estimate_total}} </td>   
+
+                                    <td *ngIf="t.estimate_status == 'Paid'">  {{t.estimate_status}} </td>   
+
+                                    <td  *ngIf="t.estimate_status == 'Paid'">{{t.created_at}}</td>
+
+
+
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> </mat-tab>
+
+ 
+
+
+
+                      </mat-tab-group>
+
+                      
+
+
+
+                    
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

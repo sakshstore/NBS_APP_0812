@@ -1,0 +1,84 @@
+
+<div class="site">
+   
+
+
+<div class="row">
+  <div class="col-md-12">
+    
+      <div class="card">
+
+  
+  <div class="card-body">
+
+<h1 class="card-title">Active Service Request
+
+<div class=" float-right"> 
+<form class="form-inline">
+ 
+  <div class="form-group mx-sm-3 mb-2">
+ <input type="text" class="form-control" id="inputPassword2" placeholder="Enter Ticket Id">
+  </div>
+  <button type="submit" class="btn btn-secondary btn-sm">Search</button>
+</form>
+   </div>
+   
+ </h1>
+ 
+ 
+ 
+  <div  class="table-responsive">
+   
+  <table class="table table-striped">
+    <thead >
+    <tr>
+
+      <tr>
+        <th>Job Work ID </th>  
+          <th>Title</th>   
+          <th>Customer name , mobile number </th>  
+          <th> Machine brand and model , year_of_purchase</th>
+          <th> Estimate Total </th>
+          <th>Parts details </th>
+           <th>Date </th>  
+            
+               
+               
+              </tr>
+
+              
+    
+            
+    </thead>
+    <tbody>
+    <tr  *ngFor="let t of service_list index as i;"(click)="sendto(t.id)">
+       <td   >{{t.id}}</td>
+      <td   >{{t.title}}</td>
+ <td   >{{t.customer_id}}</td>
+
+ <td   > </td>
+ <td   > </td>
+ <td   > </td> 
+
+
+ <td   >{{t.created_at}}</td>
+ 
+
+      
+ 
+         
+
+
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+

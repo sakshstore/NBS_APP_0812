@@ -1,0 +1,85 @@
+<div class="site">
+<div class="row">
+  <div class="col-md-12">
+ <mat-card class="example-card">
+ <mat-card-title> #4554  Laptop</mat-card-title><br>
+
+</mat-card>
+<br>
+<span *ngIf="!show">
+
+
+  <mat-card class="example-card">
+<mat-card-title> Problem Details</mat-card-title><br>
+
+  <mat-card-content>
+  <p class="text-start mx-auto"> Computer repair is the process of identifying,troubleshooting and resolving problems and issues in a faulty computer.Computer repair is a broad field encompassing many tools, techniques and procedures used to repair computer hardware, software or network/Internet problems</p>
+       
+  
+  
+    
+  </mat-card-content>
+
+</mat-card>
+
+<br>
+  <mat-card class="example-card">
+ <mat-card-title>Address</mat-card-title><br>
+
+  <mat-card-content>
+    <p>Mobile Number : 9120383766</p>
+    <p>City : Kanpur</p>
+     <p>Pincode: 208001</p>
+    <p>Address Line 1 : Moolganj</p>
+      <p>Address Line 2: Moolganj</p>
+    
+  </mat-card-content>
+
+</mat-card>
+
+<br>
+  <mat-card class="example-card">
+ <mat-card-title>Machine Details</mat-card-title><br>
+
+  <mat-card-content>
+     <mat-card-title>Laptop</mat-card-title>
+  <mat-card-subtitle>Electronics</mat-card-subtitle>
+  <mat-card-content>
+       <img src="/assets/images.jpg" />
+  </mat-card-content>
+
+  </mat-card-content>
+
+</mat-card>
+
+<br>
+  <mat-card class="example-card">
+ <mat-card-title> Payment </mat-card-title><br>
+
+  <mat-card-content>
+
+  <p class="text-start mx-auto">   Payment Amount :  1000 INR</p> 
+  </mat-card-content>
+  <mat-card-actions>
+ <button class="btn btn-primary btn-sm" (click)="submit()">confirm and Generate bar code</button>
+
+  
+  </mat-card-actions>
+</mat-card>
+
+
+
+
+
+
+</span>
+
+<span *ngIf="show">
+ <a href="http://nbs.blogentry.in/Doc2.pdf" target="_blank" > <button class="btn btn-primary btn-sm">Show BAR Code</button></a>
+
+</span>
+
+
+    </div></div>
+
+  </div>

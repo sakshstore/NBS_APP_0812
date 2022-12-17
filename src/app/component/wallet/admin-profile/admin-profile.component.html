@@ -1,0 +1,125 @@
+
+
+
+
+<div class="site">
+ 
+
+<div class="row">
+
+
+ 
+   <div class="col-md-12">
+    <div class="card" >
+     
+      <div class="card-body">  
+
+ <h5 class="card-title">Admin Profile</h5>
+  
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    
+
+	
+	<div class="hidden" >
+      <input type="hidden" formControlName="id" placeholder="id" name="id" class="form-control" id="id">
+   
+               
+    </div>
+	
+    <div class="form-group">
+      <label for="first_name">First Name:</label>
+     
+	     <input type="text" formControlName="first_name" placeholder="First Name"  name="first_name" class="form-control" id="first_name"  >
+ 
+    </div>
+
+    <div class="form-group">
+      <label for="last_name">Last Name</label>
+      <input formControlName="last_name" placeholder="Last Name" name="last_name" class="form-control" id="last_name" >
+    </div>
+   
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input formControlName="email" placeholder="Email" name="email" class="form-control" id="email" readonly=true>
+    </div>
+
+
+ <div class="form-group">
+      <label for="mobile">Mobile No</label>
+      <input formControlName="mobile" placeholder="Mobile No" name="mobile" class="form-control" id="mobile" >
+    </div>
+
+<div class="form-group">
+      <label for="country">Country</label>
+      <input formControlName="country" placeholder="Country" name="country" class="form-control" id="country" readonly=true>
+    </div>
+
+   <div class="form-group">
+      <label for="state">State</label>
+      <input formControlName="state" placeholder="State" name="state" class="form-control" id="state" >
+    </div>
+
+
+
+ 
+   <div class="form-group">
+      <label for="address1">Address Line 1:</label>
+      <textarea rows="4" cols="50" formControlName="address1" placeholder="Address Line 1" name="address1" class="form-control" id="address1" >
+
+</textarea> 
+      
+  
+ 
+ 
+    </div>
+ 
+   <div class="form-group">
+      <label for="address2">Address Line 2:</label>
+      <textarea rows="4" cols="50" formControlName="address2" placeholder="Address Line 2" name="address2" class="form-control" id="address2" >
+
+</textarea> 
+      
+  
+ 
+ 
+    </div>
+<div class="form-group">
+      <label for="gender">Gender</label>
+      
+
+      <select  class="form-control"  formControlName="gender">
+
+         <option  value="noanswer" >
+         No Answer
+        </option> 
+
+
+
+        <option  value="male" >
+         Male
+        </option> 
+
+         <option  value="female" >
+         Female
+        </option>
+
+
+      </select>
+
+
+    </div>
+ 
+
+
+
+
+    <button class="btn btn-primary btn-sm float-right" >Update</button>
+    
+  </form>
+</div>
+
+
+
+</div></div></div></div>
+

@@ -1,0 +1,197 @@
+
+
+
+<div class="site">
+ 
+
+<div class="row">
+  <div class="col-md-12">
+  	<mat-accordion>
+     <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+       Customer Details 
+      </mat-panel-title>
+      <!-- <mat-panel-description>
+        Currently I am {{panelOpenState ? 'open' : 'closed'}}
+      </mat-panel-description> -->
+    </mat-expansion-panel-header>
+   Id: {{id}}
+<br>
+{{name}}<br>
+ Total Purcahse Amount ::{{customertotalbookingamount}}<br>
+Total booking : {{totalcustomerbooking}}<br>
+ Total Cancellation :: {{totalcancelbooking}}
+  </mat-expansion-panel>
+</mat-accordion>
+
+
+
+<br>
+	<mat-accordion>
+     <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+      Upcoming Booking History
+      </mat-panel-title>
+      <!-- <mat-panel-description>
+        Currently I am {{panelOpenState ? 'open' : 'closed'}}
+      </mat-panel-description> -->
+    </mat-expansion-panel-header>
+  
+  <div  class="table-responsive">
+
+   
+
+
+  <table id="t01" class="table table-striped">
+    <thead >
+    <tr>
+      <th>SNo.</th>  
+      <th>Booking Id</th>  
+       <th>Rate</th>  
+       <th>Amount</th>  
+       <th>Client Name </th>  
+       <th>Date</th>
+           
+            
+           
+          </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let q of upcoming index as i ">
+      <td>{{i+1}}</td>
+       <td   >{{q.booking_id}}</td>
+      <td   >{{q.rate}}</td>
+ <td   >{{q.amount}}</td>
+ <td   >{{q.client_name}}</td>
+ <td   >{{q.start_time}} to  {{q.end_time}}</td>
+  
+      
+ 
+         
+
+
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+  </mat-expansion-panel>
+</mat-accordion>
+
+
+
+
+
+
+
+<br>
+	<mat-accordion>
+     <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+     Past Booking History
+      </mat-panel-title>
+      <!-- <mat-panel-description>
+        Currently I am {{panelOpenState ? 'open' : 'closed'}}
+      </mat-panel-description> -->
+    </mat-expansion-panel-header>
+  
+  <div  class="table-responsive">
+
+   
+
+
+  <table id="t01" class="table table-striped">
+    <thead >
+    <tr>
+      <th>SNo.</th>  
+      <th>Booking Id</th>  
+       <th>Rate</th>  
+       <th>Amount</th>  
+       <th>Client Name </th>  
+       <th>Date</th>
+           
+            
+           
+          </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let q of past index as i ">
+      <td>{{i+1}}</td>
+       <td   >{{q.booking_id}}</td>
+      <td   >{{q.rate}}</td>
+ <td   >{{q.amount}}</td>
+ <td   >{{q.client_name}}</td>
+ <td   >{{q.start_time}} to  {{q.end_time}}</td>
+  
+      
+ 
+         
+
+
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+  </mat-expansion-panel>
+</mat-accordion>
+
+<br>
+	<mat-accordion>
+     <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+     Transaction History
+      </mat-panel-title>
+      <!-- <mat-panel-description>
+        Currently I am {{panelOpenState ? 'open' : 'closed'}}
+      </mat-panel-description> -->
+    </mat-expansion-panel-header>
+  
+  <div  class="table-responsive">
+
+   
+
+
+  <table id="t01" class="table table-striped">
+    <thead >
+    <tr>
+      <th>SNo.</th>  
+      <th>Transaction Id</th>  
+      
+       <th>Amount</th>  
+       <th>Date</th>
+           <th>Status</th>
+            
+           
+          </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let q of transaction index as i ">
+
+      <td>{{i+1}}</td>
+       <td   >{{q.id}}</td>
+ <td   >{{q.amount}}</td>
+
+ <td   >{{q.created_at}} </td>
+   <td   >{{q.status}} </td>
+      
+ 
+         
+
+
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+  </mat-expansion-panel>
+</mat-accordion>
+</div></div></div>

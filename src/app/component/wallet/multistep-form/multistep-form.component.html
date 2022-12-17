@@ -1,0 +1,235 @@
+<div class="site">
+  <div class="row">
+    <div class="col-md-12">
+      <form [formGroup]="addForm" (ngSubmit)="submit()">
+        <div class="step1" *ngIf="step1">
+
+          <h3> Step 1 </h3>
+
+
+          <h3>Add Customer</h3>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input rows="3" cols="4" formControlName="name" placeholder="Name" name="name" class="form-control"
+              id="name">
+          </div>
+
+          <div class="form-group">
+            <label for="mobile_number">Mobile Number</label>
+            <input formControlName="mobile_number" required minlength="10" maxlength="10" placeholder="Mobile Number"
+              name="mobile_number" class="form-control" id="mobile_number">
+          </div>
+
+          <div class="form-group">
+            <label for="alternative_mobile_number">Alternative Mobile Number</label>
+            <input formControlName="alternative_mobile_number" placeholder="Mobile Number"
+              name="alternative_mobile_number" class="form-control" minlength="10" maxlength="10"
+              id="alternative_mobile_number">
+          </div>
+
+
+
+          <div class="modal-footer">
+            <button [disabled]="!addForm.valid" type="button" (click)="onSubmit1()"
+              class="btn btn-outline-primary btn-sm">Next</button>
+
+          </div>
+
+
+        </div>
+
+        <div class="step2" *ngIf="step2">
+          <h3> Step 2 </h3>
+
+          <h3>Add Machine</h3>
+
+
+          <div class="form-group">
+            <label for="title">Machine Title</label>
+            <input formControlName="machine_title" placeholder="Title" name="machine_title" class="form-control"
+              id="machine_title">
+          </div>
+
+
+          <div class="form-group">
+            <label for="brand">Brand</label>
+            <input formControlName="brand" placeholder="Brand" name="brand" class="form-control" id="brand">
+          </div>
+
+
+
+
+
+
+          <div class="form-group">
+            <label for="model">Model</label>
+            <input formControlName="model" placeholder="Model" name="model" class="form-control" id="model">
+          </div>
+
+
+          <div class="form-group">
+            <label for="machine_image">Upload Image</label>
+            <ngx-dropzone (change)="onSelect($event,'machine_image')">
+              <ngx-dropzone-label>Drop the image here!</ngx-dropzone-label>
+
+              <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
+                [removable]="true" (removed)="onRemove(f)">
+                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+              </ngx-dropzone-image-preview>
+            </ngx-dropzone>
+          </div>
+
+
+
+          <div class="modal-footer">
+            <button (click)="onSubmit2()" class="btn btn-outline-primary btn-sm">Next</button>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="step3" *ngIf="step3">
+          <h3> Step 3 </h3>
+
+
+          <h3>Add Address</h3>
+
+
+
+          <div class="form-group">
+            <label for="city">City</label>
+            <input rows="3" cols="4" formControlName="city" placeholder="City" name="city" class="form-control"
+              id="city">
+          </div>
+
+          <div class="form-group">
+            <label for="pincode">Pincode</label>
+            <input rows="3" cols="4" formControlName="pincode" placeholder="Pincode" minlength="6" maxlength="6"
+              name="pincode" class="form-control" id="pincode">
+          </div>
+
+
+          <div class="form-group">
+            <label for="address">Address</label>
+            <textarea rows="3" cols="4" formControlName="address" placeholder="Enter Address..." name="address"
+              class="form-control" id="address"></textarea>
+          </div>
+
+
+          <div class="modal-footer">
+            <button (click)="onSubmit3()" class="btn btn-outline-primary btn-sm">Next</button>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="step4" *ngIf="step4">
+          <h3> Step 4 </h3>
+          <h3>Add Service Problem</h3>
+
+
+          <div class="form-group">
+            <label for="title">Problem Small Title</label>
+            <input formControlName="title" placeholder="Title" name="title" class="form-control" id="title">
+          </div>
+
+
+          <div class="form-group">
+            <label for="problem_details">Problem Details</label>
+            <textarea rows="3" cols="7" formControlName="problem_details" placeholder="Problem Details..."
+              name="problem_details" class="form-control" id="problem_details"></textarea>
+          </div>
+
+
+          <div class="form-group">
+            <label for="image">Upload Image</label>
+            <ngx-dropzone (change)="onSelect($event,'problem_image')">
+              <ngx-dropzone-label>Drop the image here!</ngx-dropzone-label>
+
+              <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
+                [removable]="true" (removed)="onRemove(f)">
+                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+              </ngx-dropzone-image-preview>
+            </ngx-dropzone>
+          </div>
+
+          <div class="modal-footer">
+            <button (click)="onSubmit4()" type="button" class="btn btn-outline-primary btn-sm">Next</button>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="step5" *ngIf="step5">
+          <h3> Step 5 </h3>
+          <mat-card class="example-card">
+
+
+
+
+            <mat-card-title> Problem Details</mat-card-title>
+
+            <mat-card-content>
+              <p> {{title}} <br /><br />
+                {{problem_details}}</p>
+
+
+
+
+              <hr />
+              <mat-card-title>Address</mat-card-title>
+
+
+
+              <p>{{name}} <br />
+
+
+                Mobile Number 1: {{mobile_number}} <br />
+                Mobile Number 2: {{alternative_mobile_number}}</p>
+
+
+
+
+              <p>Address : {{address}} <br />
+
+                City : {{city}} <br />
+                Pincode: {{pincode}}</p>
+
+              <hr />
+
+
+              <mat-card-title>Machine Details</mat-card-title>
+
+
+              <p>Machine {{machine_title}} <br />
+                Brand {{brand}} <br />
+                Model {{model}}</p>
+
+
+
+
+              <mat-card-actions>
+                <button class="btn btn-primary btn-sm" type="submit">Confirm and Generate bar code</button>
+
+
+              </mat-card-actions>
+
+            </mat-card-content>
+
+
+          </mat-card>
+
+
+
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

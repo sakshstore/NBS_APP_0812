@@ -1,0 +1,328 @@
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Send Payment</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+     <form [formGroup]="addForm"  (ngSubmit)="onSubmit()">
+  
+
+     
+<div class="form-group">
+  <label for="currency">Coin</label>
+    
+         
+       <select name="coin" formControlName="coin" class="form-control" >
+          
+          <option  value="Bitcoin ">Bitcoin currencies</option>
+          <option *ngFor="let sta of currencies" [ngValue]="sta">{{sta}}</option>
+         
+        </select>     
+
+    </div>
+
+
+
+<div class="form-group">
+      <label for="to">To</label>
+     
+       <input type="text" formControlName="to" placeholder="To"  name="to" class="form-control" id="to">
+     Available Bitcoin Wallet Balance &#8383; {{user_data }} BTC 
+    </div>
+ 
+<div class="form-group">
+
+
+   <label for="amount">Amount</label>
+    <div  class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+    
+
+    </thead>
+    <tbody>
+    <tr>
+      <td>  
+        
+       <input type="number" formControlName="amount" placeholder="USD" name="amount" class="form-control" id="amount">
+         </td>
+     
+
+<td> <input type="number" formControlName="amount_coin" placeholder="BTC" name="amount1" class="form-control" id="amount1">
+        </td>
+
+    
+    </tr>
+    </tbody>
+  </table>
+
+      </div>
+     
+    </div>
+       
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea rows="3" cols="4"  formControlName="description" placeholder="What's this transaction for? (optional)" name="description" class="form-control" id="description" ></textarea>
+    </div>
+<div class="form-group">
+  <label for="network_fee">Network Fee</label>
+       <select formControlName="network_fee" name="network_fee"  class="form-control" >
+          <option  value="Regular ">Regular [Fee 10 ]  </option>
+          <option  value="Priority ">Priority  [Fee  100 ]</option>         
+         
+        </select>
+      </div>
+
+
+  <label>Estimated confirmation time 1+ hour</label>
+  <div class="modal-footer">
+    <button  class="btn btn-outline-primary" >Continue</button>
+
+  </div>
+  </form>
+  </div>
+</ng-template>
+
+
+
+<ng-template #content1 let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Request Payment</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+     <form  [formGroup]="addForm" (ngSubmit)="onSubmit1()">
+
+
+      <div class="form-group">
+ 
+ <label for="currency">Currency</label>
+        
+       <select name="coin" formControlName="coin" class="form-control" >
+       
+          <option *ngFor="let sta of currencies" value="{{sta.currency}}">{{sta.currency}}</option>
+         
+        </select>
+    </div>
+ 
+ 
+ 
+      <label for="address">Your receiving Address</label>
+       
+
+<ng-template [ngIf]="receive_address" > 
+<p>
+   You selected coin {{receive_coin}}
+</p>
+<p>
+
+      <B>{{receive_address}} </B>
+
+    </p>
+
+  </ng-template>
+    
+ 
+
+ <ng-template [ngIf]="receive_coin =='Bitcoin'" > 
+      
+
+<p>
+      <img src="https://blockchain.info/qr?data={{receive_address}}&size=200" />
+    </p>
+  </ng-template>
+
+
+    
+   <div class="modal-footer">
+    <button  class="btn btn-outline-primary" >Generate a new address</button>
+
+  </div>
+   </form>
+  </div>
+
+</ng-template>
+
+
+
+
+
+<ng-template #apikey let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">API Key</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body"> <h1>  {{api_key }}   
+  </h1>
+  
+   
+   
+   <p>You can use your API keys to integrate blockmor.io functionality in your web/phone applications. Try out our interactive API documents. </p>
+  
+  
+  </div>
+  
+  <div class="modal-footer">
+       <div  (click)="newapikey()" >Generate a new Key </div> 
+      </div>
+	  
+	  
+  </ng-template>
+
+
+
+ 
+<div class="site">
+
+<div class="row">
+
+<div class="col ">
+
+ 
+
+
+
+
+
+
+<mat-card (click)="open(content)"  class="example-card cp">
+ <mat-card-title>Send Payment</mat-card-title>
+   
+
+     
+   <mat-card-actions>
+  
+  </mat-card-actions>
+
+</mat-card>
+
+
+
+</div>
+<div class="col ">
+
+
+
+
+<mat-card  (click)="open2(content1)" class="example-card  cp">
+ <mat-card-title>Deposit  </mat-card-title>
+     
+      
+ 
+   <mat-card-actions>
+  
+
+  </mat-card-actions>
+
+</mat-card>
+
+
+
+</div>
+ 
+ 
+<div class="col ">
+<mat-card routerLink="/user-profile" class="example-card cp">
+ <mat-card-title>Settings</mat-card-title>
+   
+   <mat-card-actions>
+   
+  </mat-card-actions>
+
+</mat-card>
+
+ 
+
+</div>
+
+</div> 
+</div> 
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+<div class="site">
+   
+
+
+<div class="row">
+  <div class="col-md-12">
+    
+      <div class="card">
+
+  
+  <div class="card-body">
+
+<h1 class="card-title">Transaction
+
+<div class=" float-right"> 
+  Balance &#8383; {{user_data }} BTC 
+   </div>
+   
+ </h1>
+ 
+ 
+ 
+  <div  class="table-responsive">
+   
+  <table class="table table-striped">
+    <thead >
+    <tr>
+      <th>Id</th>  
+      <th>Description</th>  
+       <th>Coin</th>  
+       <th>Amount</th>  
+       <th>Type </th>  
+       <th>Balance</th>
+           
+            <th>Updated At</th>
+           <th>Status</th>
+           
+          </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let q of transaction ">
+       <td   >{{q.id}}</td>
+      <td   >{{q.description}}</td>
+ <td   >{{q.coin}}</td>
+ <td   >&#8383; {{q.amount}}</td>
+ <td   >{{q.type}}</td>
+  <td   >&#8383; {{q.balance}}</td>
+ <td  >{{q.updated_at| date:"MM/dd/yy hh:mm:ss" }}</td>
+  <td  >{{q.status }}</td>
+      
+ 
+         
+
+
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+

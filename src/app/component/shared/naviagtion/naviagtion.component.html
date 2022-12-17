@@ -1,0 +1,199 @@
+<mat-toolbar *ngIf="authService.isAuthenticated()">
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon (click)="open1()">menu</mat-icon>
+    </button>
+
+    NBS App  
+    <span class="menu-spacer"></span>
+
+
+  </mat-toolbar-row>
+
+
+
+</mat-toolbar>
+
+
+
+
+<mat-sidenav-container *ngIf="authService.isAuthenticated()" color="primary">
+
+
+  <mat-sidenav [(opened)]="opened" mode="side" #sidenav *ngIf="authService.isUser() ">
+
+    <mat-nav-list>
+
+
+      <a *ngIf="authService.isAuthenticated()" mat-list-item routerLink="search-customer-for-complain"> Dashboard </a>
+
+
+      <a *ngIf="authService.isAuthenticated()" mat-list-item routerLink="/report/customer-report">Customer
+        reports</a>
+
+
+
+      <mat-accordion *ngIf="authService.isAuthenticated()">
+
+         
+
+
+
+
+
+     
+
+        <mat-expansion-panel *ngIf="authService.isAuthenticated()">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Report
+            </mat-panel-title>
+
+            <mat-panel-description>
+
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+
+
+
+ 
+          <a *ngIf="authService.isAuthenticated()" mat-list-item routerLink="/report/job-work/top50">Job work
+            Report</a>
+
+      
+
+
+            <a *ngIf="authService.isAuthenticated()" mat-list-item routerLink="/report/grid/jobwork">Job work
+              grid</a>
+  
+  
+
+
+          <a *ngIf="authService.isAuthenticated()" mat-list-item routerLink="/report/customer-report">Customer
+            reports</a>
+
+
+            <a *ngIf="authService.isAuthenticated()" mat-list-item routerLink="/engineer">Engineers Report</a>
+
+
+            <a *ngIf="authService.isAuthenticated()" mat-list-item routerLink="/report/employee-work-summery">Engineers Weekly</a>
+
+
+          <a *ngIf="authService.isAuthenticated()" mat-list-item routerLink="/admin-login-history">Login History</a>
+
+
+
+
+
+
+        </mat-expansion-panel>
+
+
+        <mat-expansion-panel *ngIf="authService.isAuthenticated()">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Order Management
+            </mat-panel-title>
+
+            <mat-panel-description>
+
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <a *ngIf="authService.isAuthenticated()" mat-list-item routerLink="/order/add-order">Add Order</a>
+
+          <a *ngIf="authService.isAuthenticated()" mat-list-item routerLink="/order/order-history/top50">Order
+            History</a>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel *ngIf="authService.isAuthenticated()">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Ecommerce
+            </mat-panel-title>
+
+            <mat-panel-description>
+
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+
+          <a *ngIf="authService.isAuthenticated()" mat-list-item routerLink="/ecommerce/products-import">Import Products</a>
+
+
+          <a *ngIf="authService.isAuthenticated()" mat-list-item routerLink="/ecommerce/product-list">Products</a>
+          <a *ngIf="authService.isAuthenticated()" mat-list-item routerLink="/ecommerce/category-list">Category</a>
+          <a *ngIf="authService.isAuthenticated()" mat-list-item routerLink="/ecommerce/subcategory">Sub Category</a>
+          <a *ngIf="authService.isAuthenticated()" mat-list-item routerLink="/ecommerce/brand-list">Brand</a>
+
+          <a *ngIf="authService.isAuthenticated()" mat-list-item routerLink="/ecommerce/coupan-list"> Coupan </a>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel *ngIf="authService.isAuthenticated()">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Settings
+            </mat-panel-title>
+
+            <mat-panel-description>
+
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          
+         
+
+
+
+          <!--  <a  *ngIf="authService.isAuthenticated()" mat-list-item routerLink="kyc-document"> Verification </a> -->
+          <a *ngIf="authService.isAuthenticated()" mat-list-item routerLink="/user-profile1">Business Contact Numbers
+          </a>
+          <a *ngIf="authService.isAuthenticated()" mat-list-item routerLink="/change-password"> Change Password </a>
+        </mat-expansion-panel>
+
+
+
+
+      </mat-accordion>
+
+
+
+
+
+      <a *ngIf="authService.isAuthenticated()" mat-list-item (click)="sidenav.toggle()" href="" (click)="logout()"
+        mat-list-item>Logout</a>
+
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+
+
+
+
+
+  <mat-sidenav [(opened)]="opened" mode="side" #sidenav *ngIf="authService.isAdmin() ">
+
+  </mat-sidenav>
+
+
+
+
+  <mat-sidenav-content *ngIf="authService.isAuthenticated()">
+
+    <div style="height: 88vh;" class="main-content">
+
+      <router-outlet></router-outlet>
+    </div>
+
+
+  </mat-sidenav-content>
+
+
+</mat-sidenav-container>
+
+
+<div *ngIf="!authService.isAuthenticated()" style="height: 88vh;" class="main-content">
+
+  <router-outlet></router-outlet>
+</div>

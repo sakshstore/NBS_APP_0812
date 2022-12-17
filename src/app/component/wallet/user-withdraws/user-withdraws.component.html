@@ -1,0 +1,96 @@
+<div class="site">
+ 
+
+
+<div class="row">
+
+
+
+
+  <div class="col-md-12">
+  
+
+<br><br>
+ <div class="card">
+
+
+      <div class="card-body">
+<h1>Withdraw</h1>
+ <form [formGroup]="addForm"  (ngSubmit)="onSubmit()">
+  
+
+     
+<div class="form-group">
+  <label for="currency">Coin</label>
+    
+         
+       <select name="coin" formControlName="coin" class="form-control" >
+          
+          <option  value="Bitcoin ">Bitcoin currencies</option>
+          <option *ngFor="let sta of currencies" [ngValue]="sta">{{sta.currencyb}}</option>
+         
+        </select>     
+
+    </div>
+
+
+
+<div class="form-group">
+      <label for="to">To</label>
+     
+       <input type="text" formControlName="to" placeholder="To"  name="to" class="form-control" id="to">
+     Available Bitcoin Wallet Balance &#8383; {{user_data }} BTC 
+    </div>
+ 
+<div class="form-group">
+
+
+   <label for="amount">Amount</label>
+    <div  class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+    
+
+    </thead>
+    <tbody>
+    <tr>
+      <td>  
+        
+       <input type="number" formControlName="amount" placeholder="USD" name="amount" class="form-control" id="amount">
+         </td>
+     
+
+<!-- <td> <input type="number" formControlName="amount_coin" placeholder="BTC" name="amount1" class="form-control" id="amount1">
+        </td> -->
+
+    
+    </tr>
+    </tbody>
+  </table>
+
+      </div>
+     
+    </div>
+       
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea rows="3" cols="4"  formControlName="description" placeholder="What's this transaction for? (optional)" name="description" class="form-control" id="description" ></textarea>
+    </div>
+<div class="form-group">
+  <label for="network_fee">Network Fee</label>
+       <select formControlName="network_fee" name="network_fee"  class="form-control" >
+          <option  value="Regular ">Regular [Fee 10 ]  </option>
+          <option  value="Priority ">Priority  [Fee  100 ]</option>         
+         
+        </select>
+      </div>
+
+
+  <label>Estimated confirmation time 1+ hour</label>
+  <div class="modal-footer">
+    <button  class="btn btn-outline-primary" >Continue</button>
+
+  </div>
+  </form>
+
+      </div></div></div></div></div>
