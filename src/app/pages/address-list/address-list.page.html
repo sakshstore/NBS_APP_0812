@@ -14,11 +14,7 @@
 
   <div *ngIf="show">
 
-    <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="addaddress()">
-      <ion-fab-button>
-        <ion-icon name="add"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
+    
 
 
 
@@ -62,3 +58,12 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 </ion-content>
+
+ 
+<ion-footer  >
+  <ion-row class="ion-text-center">
+    <ion-col class="ion-no-padding">
+      <ion-button (click)="addaddress()" expand="full" share="round" color="primary">Add Address  </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

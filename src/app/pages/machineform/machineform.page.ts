@@ -79,5 +79,9 @@ export class MachineformPage {
     this.router.navigateByUrl('/', { replaceUrl: true });
   }
 
+  backbtn() {
+
+    this.router.navigate(['/tabs/tab1']);
+  }
 
 }

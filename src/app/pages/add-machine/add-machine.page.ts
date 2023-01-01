@@ -42,8 +42,14 @@ export class AddMachinePage {
 
 
         });
+     
+     
+          window.localStorage.removeItem("machine_id");
+          window.localStorage.setItem("machine_id", data['machine_id']);
+          this.router.navigateByUrl('/address-list');
+          this.dismiss();
 
-        this.dismiss();
+       
 
       });
   }

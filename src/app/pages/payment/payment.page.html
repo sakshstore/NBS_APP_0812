@@ -11,26 +11,26 @@
       <ion-button (click)="backbtn()">Close</ion-button>
     </ion-buttons>
 
-    
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
 
-  
-  <img src="{{qrcode}}">
-  <br /><br />
-  Payable amount   ₹{{total | number}}
+  <div style="display:none">
+    <img src="{{qrcode}}">
+    <br /><br />
+    Our executive will call you for futher discussion.
+    <br /><br />
 
-  {{qrcode}}
-  <br /><br /> 
-  
-  <ion-button *ngIf="showOrder" type="submit" (click)="submitOrder()" expand="block" size="default">Submit Order</ion-button>
+    <ion-button *ngIf="showOrder" type="submit" (click)="submitOrder()" expand="block" size="default">Submit
+      Order</ion-button>
 
 
-  <ion-button *ngIf="showJobWork" type="submit" (click)="submitJobWork()" expand="block" size="default">Submit Job Work</ion-button>
+    <ion-button *ngIf="showJobWork" type="submit" (click)="submitJobWork()" expand="block" size="default">Submit Job
+      Work</ion-button>
+  </div>
 
-  
 
 
 </ion-content>

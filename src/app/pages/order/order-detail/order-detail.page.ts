@@ -47,7 +47,7 @@ export class OrderDetailPage implements OnInit {
         console.log(this.show);
 
         this.status = data['order']['order_status'];
-        this.total = data['order']['total'];
+       // this.total = data['order']['total'];
         this.date = data['order']['created_at'];
 
         this.items = data['order']['product_list'];
@@ -68,25 +68,12 @@ export class OrderDetailPage implements OnInit {
         this.shipping_details = data['order']['shipping']['shipping_details'];
 
 
-        this.payment_method = data['order']['payment_method'];
-        this.payment_status = data['order']['payment_status'];
+        
 
 
       });
 
-    this.orderService.edit_productbyid(+this.order_id)
-      .subscribe(data => {
-        this.orderDetail = data;
-
-        this.quantity = data['quanity'];
-        // this.product_name = data['data']['product_name'];
-        this.original_price = data['product_selling_price'];
-        // this.status = data['data']['status'];
-
-
-        // alert(this.editForm.value.cover);
-
-      });
+    
 
 
 

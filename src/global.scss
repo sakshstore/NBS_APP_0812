@@ -51,3 +51,31 @@
 
 body{font-family: 'Edu VIC WA NT Beginner', cursive;
 }
+
+
+
+img {
+  background-image: url("https://nbsadmin.sakshstore.com/no-image.png");
+  overflow: hidden;
+  border: solid 2px;
+
+ 
+}
+
+img:before {
+  content: " ";
+  font-size: 1000px;
+}
+
+
+
+ion-img {
+  background-image: url("https://nbsadmin.sakshstore.com/no-image.png");
+  overflow: hidden;
+  border: solid  2px;
+}
+
+ion-img:before {
+  content: " ";
+  font-size: 1000px;
+}

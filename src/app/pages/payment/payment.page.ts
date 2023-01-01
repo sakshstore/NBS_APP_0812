@@ -65,15 +65,15 @@ export class PaymentPage implements OnInit {
     if (this.case == "jobwork") {
 
 
-
+this.submitJobWork();
 
       // var test = localStorage.getItem('job_work_json');
       // this.job_work_json = JSON.parse(test);
 
 
-      this.total = 1000;
+      //this.total = 1000;
 
-      this.showJobWork = true;
+     // this.showJobWork = true;
     }
     else {
 

@@ -28,7 +28,7 @@ export class ProductDetailsPage implements OnInit {
   original_price;
 
   set_quantity: FormGroup;
-
+  sell_price:any;
 
   constructor(private authService: AuthenticationService,
     private router: Router,
@@ -46,7 +46,7 @@ export class ProductDetailsPage implements OnInit {
 
     this.set_quantity = this.fb.group({
 
-      quantity: ['10', [Validators.required]]
+      quantity: ['', [Validators.required]]
     });
 
 
@@ -58,7 +58,7 @@ export class ProductDetailsPage implements OnInit {
 
        // this.set_quantity.controls['quantity'].setValue(data['data']['wholesale_min_quantity']);
 
-         this.set_quantity.controls['quantity'].setValue(10);
+         this.set_quantity.controls['quantity'].setValue( data['data']['wholesale_min_quantity']);
 
         this.product = {
           id: data['data']['id'],
@@ -68,10 +68,14 @@ export class ProductDetailsPage implements OnInit {
 
           quantity: data['data']['wholesale_min_quantity'],
           net_price: 0,
-          wholesale_price: data['data']['wholesale_price'],
-          original_price: data['data']['original_price']
+          sell_price: data['data']['sell_price'],
+          
+          wholesale_price: data['data']['sell_price']
+          
+         
+          
         };
-
+        
 
 
         this.customer_browsing_history(+this.id);
@@ -90,7 +94,7 @@ export class ProductDetailsPage implements OnInit {
     this.product.quantity = this.set_quantity.value.quantity;
 
 
-    this.product.net_price = this.product.wholesale_price * this.product.quantity;
+    this.product.net_price = this.product.sell_price * this.product.quantity;
   }
 
   addToCart() {
@@ -99,7 +103,7 @@ export class ProductDetailsPage implements OnInit {
     this.product.quantity = this.set_quantity.value.quantity;
 
 
-    this.product.net_price = this.product.wholesale_price * this.product.quantity;
+    this.product.net_price = this.product.sell_price * this.product.quantity;
 
     this.cartService.addToCart(this.product);
 
@@ -114,7 +118,8 @@ export class ProductDetailsPage implements OnInit {
     });
     console.log(this.cartService.getItems());
 
-    this.router.navigate(['cart']);
+ 
+     this.router.navigate(['cart']);
 
   }
 

@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
  
+import { ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -17,13 +18,18 @@ export class LoginPage implements OnInit {
     private fb: FormBuilder,
     private authService: AuthenticationService,
     private alertController: AlertController,
-    private router: Router,
+    private router: Router,public toastController: ToastController,
     private loadingController: LoadingController
   ) {}
  show:boolean=false;
 
 msg:any;
   ngOnInit() {
+
+
+    
+
+
     this.credentials = this.fb.group({
       mobile: ['', [Validators.required]],
       otp: ['', [Validators.required, Validators.minLength(4)]],
@@ -53,9 +59,8 @@ async login(){
       async (data) => {
       	console.log("data",data);
         await loading.dismiss(); 
-     
-
-
+ 
+       
   // if(data['Error']==true){
   //     async (data) => {
   //     	//console.log("data",data);
@@ -73,13 +78,34 @@ async login(){
 
      // if(data['Error']==false){
 // alert(data['access_token']);
+
+if(data['Error']==true){
+  const toast = this.toastController.create({
+    position: 'top',
+    color: 'dark',
+    message:  data.message ,
+    duration: 10000,
+
+
+  });
+
+
+}
+
+else
+{
+
 window.localStorage.setItem("token_type", data['token_type']);
         localStorage.setItem('access_token', data['access_token']);
         localStorage.setItem('token', data['access_token']);
+
+        localStorage.setItem('login_status',  "true");
+
+        this.authService.isAuthenticated.next(true);
         window.localStorage.setItem("roll",data['user']['roll']);
       this.router.navigateByUrl('/tabs/tab1', { replaceUrl: true });
 
-      // }
+    }
 
 
 

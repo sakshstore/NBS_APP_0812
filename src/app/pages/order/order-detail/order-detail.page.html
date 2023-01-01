@@ -51,46 +51,40 @@
               </div>
             </ion-col>
           </ion-row>
+         
           <ion-row>
             <ion-col>
               <div>
-                Total products in this order
+               Shipping status
               </div>
             </ion-col>
             <ion-col>
               <div>
-                {{products_count}}
+                {{shipping_status}}
               </div>
             </ion-col>
           </ion-row>
-
-
-          <ion-row>
-            <ion-col>
-              <div>
-                Order Status
-              </div>
-            </ion-col>
-            <ion-col>
-              <div>
-                {{status}}
-              </div>
-            </ion-col>
-          </ion-row>
+         
 
 
           <ion-row>
             <ion-col>
               <div>
-                Total Amount
-              </div>
+                Shipping details   
+                         </div>
             </ion-col>
             <ion-col>
               <div>
-                {{total}}
+                {{shipping_details}}
               </div>
             </ion-col>
           </ion-row>
+         
+
+
+           
+
+ 
 
 
 
@@ -128,14 +122,15 @@
 
         <ion-item *ngFor="let t of items">
 
-          <ion-thumbnail slot="start">
-            <img src="{{t.cover}}">
-          </ion-thumbnail>
-          <p> <b> {{t.name}}</b> <br> <br>
-            ₹{{t.selling_price | number}}
+           
+          <p> <b> {{t.name}}</b> <br> 
+            
+            Selling price   ₹{{t.selling_price | number}}
 
             <br /> Quantity {{t.quantity}}<br>
-
+      
+            
+            Product id {{t.product_id  }}
           </p>
 
 
@@ -150,103 +145,7 @@
     </ion-accordion>
 
 
-
-
-
-    <ion-accordion value="shipment_details">
-      <ion-item slot="header" color="light">
-        <ion-label>Shipment Details</ion-label>
-      </ion-item>
-      <div class="ion-padding" slot="content">
-        <ion-grid>
-
-
-          <ion-row>
-            <ion-col>
-              <div>
-                Status
-              </div>
-            </ion-col>
-            <ion-col>
-              <div>
-                {{status}}
-              </div>
-            </ion-col>
-          </ion-row>
-
-
-          <ion-row>
-            <ion-col>
-              <div>
-                Details
-              </div>
-            </ion-col>
-            <ion-col>
-              <div>
-                {{shipping_details}}
-              </div>
-            </ion-col>
-          </ion-row>
-
-
-
-
-
-        </ion-grid>
-      </div>
-    </ion-accordion>
-
-<!--
-
-    <ion-accordion value="payment_information">
-      <ion-item slot="header" color="light">
-        <ion-label>Payments Information</ion-label>
-      </ion-item>
-      <div class="ion-padding" slot="content">
-        <ion-grid>
-
-          <ion-row>
-            <ion-col>
-              <div>
-                Payment
-              </div>
-            </ion-col>
-            <ion-col>
-              <div>
-                {{payment_method}}
-              </div>
-            </ion-col>
-          </ion-row>
-
-          <ion-row>
-            <ion-col>
-              <div>
-                Status
-              </div>
-            </ion-col>
-            <ion-col>
-              <div>
-                {{payment_status}}
-              </div>
-            </ion-col>
-          </ion-row>
-
-          <ion-row>
-            <ion-col>
-              <ion-button type="submit" (click)="makepayment()" expand="block" size="default">
-                Make payment
-              </ion-button>
-
-            </ion-col>
-          </ion-row>
-
-
-
-        </ion-grid>
-
-      </div>
-    </ion-accordion>
-  -->
+ 
 
   </ion-accordion-group>
 

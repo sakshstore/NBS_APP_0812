@@ -105,15 +105,15 @@ export class CheckoutPage implements OnInit {
   */
 
   items: any;
-  select(id) {
+  select(address_id) {
 
 
     var test = localStorage.getItem('cart_items');
     this.items = JSON.parse(test);
 
+    //alert(address_id);
 
-
-    var address_id = localStorage.getItem('address_id');
+    //  var address_id = localStorage.getItem('address_id');
 
 
     const products = this.cartService.getItems();
@@ -126,7 +126,7 @@ export class CheckoutPage implements OnInit {
 
         quantity: element['quantity'],
 
-        original_price: element['original_price']
+        original_price: element['sell_price']
       };
 
 
